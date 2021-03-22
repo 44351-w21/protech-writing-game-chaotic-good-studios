@@ -1,10 +1,7 @@
 # Graduation
 Chaotic Good Studios
 
-David Angelo
-
-Drake Bush
-
-Francesca Infranca
-
+David Angelo,
+Drake Bush,
+Francesca Infranca,
 Lindsey Fares

@@ -1,5 +1,5 @@
 # Graduation
-##Chaotic Good Studios
+Chaotic Good Studios
 David Angelo
 Drake Bush
 Francesca Infranca

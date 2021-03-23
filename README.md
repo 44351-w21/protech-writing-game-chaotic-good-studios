@@ -7,16 +7,16 @@ Francesca Infranca,
 Lindsey Fares
 
 
-###Intro
+### Intro
 * 2-5 players
 * Avg. gameplay 30-60 minutes
 * Goal: become the first to graduate
 
-###Set-Up Instructions
+### Set-Up Instructions
 * Choose your player: Jock, Prep, Loner, Rebel, Nerd
 * When all players are ready press start
   * Oldest player goes first (I think this should be changed, maybe randomized?)
-###Gameplay
+### Gameplay
 * Roll the "die" and you will be moved the number of spaces indicated.
   * You will land on one of six possible spaces: History, English, Math, Science, Detention, or Exam Day. 
 * If you land on:

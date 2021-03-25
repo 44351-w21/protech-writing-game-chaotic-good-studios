@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Protech-writing-game-chaotic-good-studios"
+config/name="Graduation"
 config/icon="res://icon.png"
 
 [rendering]

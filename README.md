@@ -28,3 +28,7 @@ Lindsey Fares
   * **If you answer _incorrectly_:** The answer will not be revealed, and the card will be returned to the bottom of the deck. You collect zero credits.
 * Repeat steps 1-3 until any player obtains eight credit hours.
   * This player is the first to graduate, and wins the game. 
+
+Current game assets are from Kenney
+* Pixel UI pack: https://www.kenney.nl/assets/pixel-ui-pack
+* Boardgame Pack: https://www.kenney.nl/assets/boardgame-pack

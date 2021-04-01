@@ -4,7 +4,8 @@ extends Node2D
 onready var sprite = $Sprite
 export var player = 0;
 onready var tween = $Tween
-var sprites = [preload("res://Assets/Players/PNG/PiecesBlack/pieceBlack_border04.png"), preload("res://Assets/Players/PNG/PiecesBlue/pieceBlue_border06.png")]
+var sprites = [preload("res://Assets/Players/PNG/PiecesBlack/pieceBlack_border04.png"), preload("res://Assets/Players/PNG/PiecesBlue/pieceBlue_border06.png"),preload("res://Assets/Players/PNG/Pieces (Green)/pieceGreen_border01.png"),preload("res://Assets/Players/PNG/Pieces (White)/pieceWhite_border00.png"),preload("res://Assets/Players/PNG/Pieces (Red)/pieceRed_border00.png"),preload("res://Assets/Players/PNG/Pieces (Purple)/piecePurple_border01.png")]
+var step=preload("res://Assets/Players/Bonus/cardPlace1.ogg")
 var space = 0
 var dir = Vector2.RIGHT
 var speed = 2
@@ -22,16 +23,16 @@ func _ready():
 	position.x = tilesize/2
 	position.y = tilesize/2
 	sprite.texture=sprites[player]
+	$AudioStreamPlayer.stream=step
 
 func move(spaces):
 	for n in spaces:
-		$AudioStreamPlayer.play()
 		movespace()
-		$AudioStreamPlayer.stop()
+		$AudioStreamPlayer.play()
 		yield(tween, "tween_completed")
+		$AudioStreamPlayer.stop()
 		GameState.update_spaceLabel(space)
 	emit_signal("movedone")
-	$AudioStreamPlayer.stop()
 
 func movespace():
 	match space:

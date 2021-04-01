@@ -25,10 +25,13 @@ func _ready():
 
 func move(spaces):
 	for n in spaces:
+		$AudioStreamPlayer.play()
 		movespace()
+		$AudioStreamPlayer.stop()
 		yield(tween, "tween_completed")
 		GameState.update_spaceLabel(space)
 	emit_signal("movedone")
+	$AudioStreamPlayer.stop()
 
 func movespace():
 	match space:

@@ -2,7 +2,7 @@ I was not sure how we wanted to tile this game.
 
 A typical Trivial Pursuit game has around 6-9 tiles for each trivia category.
 
-My thought was to have 10 of each (Science, Math, History, and English) with having half (5) of each other square
+My thought was to have 10 of each (Science, Math, History, and English) with having half + 1 (6) of each other square
 (Detention or Exam Day)
 
 You guys can let me know what you think. I'm not too certain myself but I've made an attempt to start the board.

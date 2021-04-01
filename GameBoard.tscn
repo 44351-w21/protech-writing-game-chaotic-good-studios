@@ -94,6 +94,7 @@
 5/z_index = 0
 
 [node name="GameBoard" type="Node2D"]
+show_behind_parent = true
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 0.25, 0.25 )

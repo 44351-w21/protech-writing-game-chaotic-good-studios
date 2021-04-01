@@ -18,7 +18,7 @@ Lindsey Fares
   * Oldest player goes first. *(I think this should be changed, maybe randomized?)*
 ### Gameplay
 * Roll the "die" and you will be moved the number of spaces indicated.
-  * **_You will land on one of six possible spaces:_** *History, English, Math, Science, Detention, or Exam Day*.
+  * **_You will land on one of six possible spaces:_** *History (Purple), English (Blue), Math (Orange), Science (Green), Detention (Black), or Exam Day (White)*.
 * If you land on:
   * **History, English, Math, or Science:** The player to your **_right_** will draw a trivia card that corresponds to the space you’ve landed on.
   * **Detention:** You will not draw a trivia card, and your turn is over.

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cardSlide3.ogg-0c73bfabf8a90078a21ec786f998be5e.oggstr"
+
+[deps]
+
+source_file="res://Assets/Players/Bonus/cardSlide3.ogg"
+dest_files=[ "res://.import/cardSlide3.ogg-0c73bfabf8a90078a21ec786f998be5e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

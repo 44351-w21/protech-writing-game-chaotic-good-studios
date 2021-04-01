@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/chipsCollide2.ogg-db3f2cddb4fabe72d486090cf5e0502a.oggstr"
+
+[deps]
+
+source_file="res://Assets/Players/Bonus/chipsCollide2.ogg"
+dest_files=[ "res://.import/chipsCollide2.ogg-db3f2cddb4fabe72d486090cf5e0502a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

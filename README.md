@@ -30,5 +30,5 @@ Lindsey Fares
   * This player is the first to graduate, and wins the game. 
 
 Current game assets are from Kenney
-* Pixel UI pack: https://www.kenney.nl/assets/pixel-ui-pack
+* Prototype Textures: https://kenney.nl/assets/prototype-textures
 * Boardgame Pack: https://www.kenney.nl/assets/boardgame-pack

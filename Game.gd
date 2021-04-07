@@ -11,6 +11,7 @@ onready var p6 = $Player6
 var rng = RandomNumberGenerator.new()
 var nextplayer = ['Player 2','Player 3','Player 4','Player 5','Player 6','Player 1']
 var currentPlayerNum = 0
+signal endCard;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
@@ -43,9 +44,14 @@ func _on_MoveButton_pressed():
 	#moveBtn.disabled = true
 	GameState.currentPlayer.move(rng.randi_range(1,6))
 	yield(GameState.currentPlayer, 'movedone')
+	card_player_interaction()
+	yield(self,"endCard")
 	$CanvasLayer/Button.show()
 	#moveBtn.visible = false
 	#endBtn.visible = true
+
+func card_player_interaction():
+	emit_signal("endCard")
 
 
 func _on_EndTurn_pressed():

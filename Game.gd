@@ -19,6 +19,7 @@ func _ready():
 	GameState.currentPlayer = p1
 	GameState.currentPlayerLabel = "Player 1"
 	update_label()
+	$Die/DieAnimation.is_playing()
 
 
 # moves camera to parent
@@ -39,8 +40,10 @@ func update_spaceLabel(_space):
 
 func _on_MoveButton_pressed():
 	rng.randomize()
+	var randMove = rng.randi_range(1,6)
+	$Die/DieAnimation.get_frame(randMove - 1)
 	#moveBtn.disabled = true
-	GameState.currentPlayer.move(rng.randi_range(1,6))
+	GameState.currentPlayer.move(randMove)
 	yield(GameState.currentPlayer, 'movedone')
 	card_player_interaction()
 	yield(self,"endCard")

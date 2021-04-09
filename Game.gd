@@ -19,25 +19,23 @@ func _ready():
 	GameState.currentPlayer = p1
 	GameState.currentPlayerLabel = "Player 1"
 	update_label()
-	
 
 
 # moves camera to parent
-
 func move_camera(p):
 	cam.get_parent().remove_child(cam)
 	p.add_child(cam)
-
-	
 
 
 func update_label():
 	#plabel.text = GameState.currentPlayerLabel
 	return
 
+
 func update_spaceLabel(_space):
 	#spaceLabel.text = str(space)	
 	return
+
 
 func _on_MoveButton_pressed():
 	rng.randomize()
@@ -49,6 +47,7 @@ func _on_MoveButton_pressed():
 	$CanvasLayer/Button.show()
 	#moveBtn.visible = false
 	#endBtn.visible = true
+
 
 func card_player_interaction():
 	emit_signal("endCard")

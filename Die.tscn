@@ -15,7 +15,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="AnimatedSprite" type="AnimatedSprite"]
+[node name="Die" type="AnimatedSprite"]
 frames = SubResource( 1 )
 animation = "roll"
 speed_scale = 1.25

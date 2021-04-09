@@ -1,6 +1,5 @@
 extends Node2D
 
-
 onready var cam = $GameCam
 onready var p1 = $Player1
 onready var p2 = $Player2
@@ -67,11 +66,10 @@ func card_player_interaction():
 	characterCellCoordinates[1]-=2
 	var tileId = tilemap.get_cellv(characterCellCoordinates)
 	do_the_card_stuff(cardColor[tileId])
-	
-	
+
+
 func do_the_card_stuff(cardColor):
 	print(cardColor)
-
 
 func _on_EndTurn_pressed():
 	$HUD/TurnSwitch/Label.text=nextplayer[currentPlayerNum]+"'s turn"

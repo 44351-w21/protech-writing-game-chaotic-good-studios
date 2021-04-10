@@ -9,7 +9,7 @@ onready var p4 = $Player4
 onready var p5 = $Player5
 onready var p6 = $Player6
 onready var tilemap=$GameBoard/TileMap
-var cardColor=["black","green","white","orange","purple","red"]
+var cardColors=["black","green","white","orange","purple","red"]
 var black=0
 var green=1
 var white=2
@@ -20,7 +20,7 @@ var red=5
 var rng = RandomNumberGenerator.new()
 var nextplayer = ['Player 2','Player 3','Player 4','Player 5','Player 6','Player 1']
 var currentPlayerNum = 0
-signal endCard;
+#signal endCard;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
@@ -41,7 +41,7 @@ func update_label():
 
 
 func update_spaceLabel(_space):
-	#spaceLabel.text = str(space)	
+	#spaceLabel.text = str(space)
 	return
 
 
@@ -66,9 +66,8 @@ func card_player_interaction():
 	characterCellCoordinates[0]-=2
 	characterCellCoordinates[1]-=2
 	var tileId = tilemap.get_cellv(characterCellCoordinates)
-	do_the_card_stuff(cardColor[tileId])
-	
-	
+	do_the_card_stuff(cardColors[tileId])
+
 func do_the_card_stuff(cardColor):
 	print(cardColor)
 
@@ -96,19 +95,19 @@ func _on_Button_pressed():
 		4:
 			GameState.currentPlayer=p6
 			currentPlayerNum=5
-			
+
 		5:
 			GameState.currentPlayer=p1
 			currentPlayerNum=0
 	update_spaceLabel(GameState.currentPlayer.space)
 	update_label()
-	
+
 	move_camera(GameState.currentPlayer)
 	_on_MoveButton_pressed()
-	
+
 	#moveBtn.show()
 	#endBtn.hide()
 	#moveBtn.disabled=false
-	
+
 	#$HUD/TurnSwitch.visible=false
 	pass # Replace with function body.

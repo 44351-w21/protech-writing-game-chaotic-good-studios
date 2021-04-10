@@ -12,6 +12,7 @@ var rng = RandomNumberGenerator.new()
 var nextplayer = ['Player 2','Player 3','Player 4','Player 5','Player 6','Player 1']
 var currentPlayerNum = 0
 signal endCard;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
@@ -19,6 +20,7 @@ func _ready():
 	GameState.currentPlayer = p1
 	GameState.currentPlayerLabel = "Player 1"
 	update_label()
+	$CanvasLayer/RollButton.hide()
 
 # moves camera to parent
 func move_camera(p):
@@ -37,18 +39,24 @@ func update_spaceLabel(_space):
 
 
 func _on_MoveButton_pressed():
+	$Die.play()
+	$CanvasLayer/RollButton.show()
+
+func _on_RollButton_pressed():
 	rng.randomize()
 	var randMove = rng.randi_range(1,6)
 	$Die.stop()
 	$Die.set_frame(randMove - 1)
+	$CanvasLayer/RollButton.hide()
 	#moveBtn.disabled = true
-	GameState.currentPlayer.move(randMove)
-	yield(GameState.currentPlayer, 'movedone')
-	card_player_interaction()
-	yield(self,"endCard")
-	$CanvasLayer/Button.show()
-	#moveBtn.visible = false
-	#endBtn.visible = true
+	if $Die.is_playing() == false:
+		GameState.currentPlayer.move(randMove)
+		yield(GameState.currentPlayer, 'movedone')
+		card_player_interaction()
+		yield(self,"endCard")
+		$CanvasLayer/GoButton.show()
+		#moveBtn.visible = false
+		#endBtn.visible = true
 
 
 func card_player_interaction():
@@ -60,7 +68,7 @@ func _on_EndTurn_pressed():
 	$HUD/TurnSwitch.visible = true
 
 func _on_Button_pressed():
-	$CanvasLayer/Button.hide()
+	$CanvasLayer/GoButton.hide()
 	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
 	match currentPlayerNum:
 		0:

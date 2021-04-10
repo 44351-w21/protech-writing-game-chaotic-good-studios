@@ -29,14 +29,14 @@ current = true
 smoothing_enabled = true
 
 [node name="Player5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 28.4171, 30.4579 )
+position = Vector2( 80.8013, 68.5555 )
 player = 4
 
 [node name="Player1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 29.0342, 29.3863 )
+position = Vector2( 77.4499, 65.1028 )
 
 [node name="Player2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 23.807, 29.7151 )
+position = Vector2( 78.5723, 66.2253 )
 player = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -52,22 +52,22 @@ __meta__ = {
 }
 
 [node name="Player3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 35.2316, 34.2338 )
+position = Vector2( 79.6788, 65.1881 )
 player = 2
 
 [node name="Player4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 30.0045, 27.4192 )
+position = Vector2( 80.8013, 66.3105 )
 player = 3
 
 [node name="Player6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 36.6828, 28.2129 )
+position = Vector2( 81.9237, 66.3105 )
 player = 5
 
 [node name="Die" type="AnimatedSprite" parent="."]
 position = Vector2( 195.308, 143.675 )
 frames = SubResource( 1 )
 animation = "roll"
-frame = 4
+frame = 1
 speed_scale = 1.5
 playing = true
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]

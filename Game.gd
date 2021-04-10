@@ -8,6 +8,7 @@ onready var p3 = $Player3
 onready var p4 = $Player4
 onready var p5 = $Player5
 onready var p6 = $Player6
+onready var die = $Die/DieAnimation
 onready var tilemap=$GameBoard/TileMap
 var cardColors=["black","green","white","orange","purple","red"]
 var black=0
@@ -47,9 +48,11 @@ func update_spaceLabel(_space):
 
 func _on_MoveButton_pressed():
 	rng.randomize()
+	die.play()
+	yield(get_tree().create_timer(.5), "timeout")
 	var randMove = rng.randi_range(1,6)
-	$Die.stop()
-	$Die.set_frame(randMove - 1)
+	die.stop()
+	die.set_frame(randMove - 1)
 	#moveBtn.disabled = true
 	GameState.currentPlayer.move(randMove)
 	yield(GameState.currentPlayer, 'movedone')

@@ -8,6 +8,14 @@ onready var p3 = $Player3
 onready var p4 = $Player4
 onready var p5 = $Player5
 onready var p6 = $Player6
+onready var tilemap = $GameBoard/TileMap
+var cardColor = ["black","green","white","orange","purple","red"]
+var black = 0
+var green = 1
+var white = 2
+var orange = 3
+var purple = 4
+var red = 5
 var rng = RandomNumberGenerator.new()
 var nextplayer = ['Player 2','Player 3','Player 4','Player 5','Player 6','Player 1']
 var currentPlayerNum = 0
@@ -53,14 +61,23 @@ func _on_RollButton_pressed():
 		GameState.currentPlayer.move(randMove)
 		yield(GameState.currentPlayer, 'movedone')
 		card_player_interaction()
-		yield(self,"endCard")
 		$CanvasLayer/GoButton.show()
 		#moveBtn.visible = false
 		#endBtn.visible = true
 
 
 func card_player_interaction():
-	emit_signal("endCard")
+	var globalPosition = GameState.currentPlayer.global_position
+	var positionRelativeToTileMap = tilemap.to_local(globalPosition)
+	var characterCellCoordinates = tilemap.world_to_map(positionRelativeToTileMap)
+	characterCellCoordinates[0]-=2
+	characterCellCoordinates[1]-=2
+	var tileId = tilemap.get_cellv(characterCellCoordinates)
+	do_the_card_stuff(cardColor[tileId])
+
+
+func do_the_card_stuff(cardColor):
+	print(cardColor)
 
 
 func _on_EndTurn_pressed():

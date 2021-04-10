@@ -67,7 +67,6 @@ player = 5
 position = Vector2( 195.308, 143.675 )
 frames = SubResource( 1 )
 animation = "roll"
-frame = 4
+frame = 1
 speed_scale = 1.5
-playing = true
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]

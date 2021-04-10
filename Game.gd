@@ -86,7 +86,6 @@ func _on_Button_pressed():
 		4:
 			GameState.currentPlayer=p6
 			currentPlayerNum=5
-			
 		5:
 			GameState.currentPlayer=p1
 			currentPlayerNum=0

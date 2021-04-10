@@ -8,20 +8,19 @@ onready var p3 = $Player3
 onready var p4 = $Player4
 onready var p5 = $Player5
 onready var p6 = $Player6
-onready var die=$Die/DieAnimation
-onready var tilemap=$GameBoard/TileMap
-var cardColors=["black","green","white","orange","purple","red"]
-var black=0
-var green=1
-var white=2
-var orange=3
-var purple=4
-var red=5
-
+onready var tilemap = $GameBoard/TileMap
+var cardColor = ["black","green","white","orange","purple","red"]
+var black = 0
+var green = 1
+var white = 2
+var orange = 3
+var purple = 4
+var red = 5
 var rng = RandomNumberGenerator.new()
 var nextplayer = ['Player 2','Player 3','Player 4','Player 5','Player 6','Player 1']
 var currentPlayerNum = 0
-#signal endCard;
+signal endCard;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
@@ -29,6 +28,7 @@ func _ready():
 	GameState.currentPlayer = p1
 	GameState.currentPlayerLabel = "Player 1"
 	update_label()
+	$CanvasLayer/RollButton.hide()
 
 # moves camera to parent
 func move_camera(p):
@@ -42,24 +42,28 @@ func update_label():
 
 
 func update_spaceLabel(_space):
-	#spaceLabel.text = str(space)
+	#spaceLabel.text = str(space)	
 	return
 
 
 func _on_MoveButton_pressed():
+	$Die.play()
+	$CanvasLayer/RollButton.show()
+
+func _on_RollButton_pressed():
 	rng.randomize()
-	die.play()
-	yield(get_tree().create_timer(.5), "timeout")
 	var randMove = rng.randi_range(1,6)
-	die.stop()
-	die.set_frame(randMove - 1)
+	$Die.stop()
+	$Die.set_frame(randMove - 1)
+	$CanvasLayer/RollButton.hide()
 	#moveBtn.disabled = true
-	GameState.currentPlayer.move(randMove)
-	yield(GameState.currentPlayer, 'movedone')
-	card_player_interaction()
-	$CanvasLayer/Button.show()
-	#moveBtn.visible = false
-	#endBtn.visible = true
+	if $Die.is_playing() == false:
+		GameState.currentPlayer.move(randMove)
+		yield(GameState.currentPlayer, 'movedone')
+		card_player_interaction()
+		$CanvasLayer/GoButton.show()
+		#moveBtn.visible = false
+		#endBtn.visible = true
 
 
 func card_player_interaction():
@@ -69,7 +73,8 @@ func card_player_interaction():
 	characterCellCoordinates[0]-=2
 	characterCellCoordinates[1]-=2
 	var tileId = tilemap.get_cellv(characterCellCoordinates)
-	do_the_card_stuff(cardColors[tileId])
+	do_the_card_stuff(cardColor[tileId])
+
 
 func do_the_card_stuff(cardColor):
 	print(cardColor)
@@ -80,7 +85,7 @@ func _on_EndTurn_pressed():
 	$HUD/TurnSwitch.visible = true
 
 func _on_Button_pressed():
-	$CanvasLayer/Button.hide()
+	$CanvasLayer/GoButton.hide()
 	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
 	match currentPlayerNum:
 		0:
@@ -98,19 +103,18 @@ func _on_Button_pressed():
 		4:
 			GameState.currentPlayer=p6
 			currentPlayerNum=5
-
 		5:
 			GameState.currentPlayer=p1
 			currentPlayerNum=0
 	update_spaceLabel(GameState.currentPlayer.space)
 	update_label()
-
+	
 	move_camera(GameState.currentPlayer)
 	_on_MoveButton_pressed()
-
+	
 	#moveBtn.show()
 	#endBtn.hide()
 	#moveBtn.disabled=false
-
+	
 	#$HUD/TurnSwitch.visible=false
 	pass # Replace with function body.

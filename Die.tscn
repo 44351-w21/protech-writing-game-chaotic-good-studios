@@ -19,4 +19,5 @@ animations = [ {
 
 [node name="DieAnimation" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 4
 speed_scale = 1.5

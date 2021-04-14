@@ -61,6 +61,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Player Turn" type="Label" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player Credits" type="Label" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Player3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 35.2316, 34.2338 )
 player = 2
@@ -78,5 +92,63 @@ position = Vector2( 216.706, 152.45 )
 frames = SubResource( 1 )
 animation = "roll"
 speed_scale = 1.5
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="HUD"]
+margin_left = -477.0
+margin_top = -273.0
+margin_right = 546.0
+margin_bottom = 323.0
+color = Color( 0, 0.74902, 0.74902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="HUD"]
+margin_left = 136.154
+margin_top = 11.3461
+margin_right = 148.154
+margin_bottom = 31.3461
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerCount" type="HSlider" parent="HUD"]
+margin_left = 99.0
+margin_top = 55.0
+margin_right = 284.0
+margin_bottom = 71.0
+min_value = 2.0
+max_value = 6.0
+value = 2.0
+tick_count = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player Selection" type="VBoxContainer" parent="HUD"]
+margin_left = 44.7171
+margin_top = 117.466
+margin_right = 84.7171
+margin_bottom = 157.466
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player 1" type="HBoxContainer" parent="HUD/Player Selection"]
+margin_right = 84.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="HUD/Player Selection/Player 1"]
+margin_top = 3.0
+margin_right = 51.0
+margin_bottom = 17.0
+text = "Player 1"
+
+[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 1"]
+margin_left = 55.0
+margin_right = 84.0
+margin_bottom = 20.0
 [connection signal="pressed" from="CanvasLayer/GoButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/RollButton" to="." method="_on_RollButton_pressed"]

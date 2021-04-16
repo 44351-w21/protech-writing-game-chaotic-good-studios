@@ -1,6 +1,5 @@
 extends Node2D
 
-
 onready var cam = $GameCam
 onready var p1 = $Player1
 onready var p2 = $Player2

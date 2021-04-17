@@ -104,8 +104,6 @@ func do_the_card_stuff(cardColor):
 		$CanvasLayer/HistSelect.show()
 		$CanvasLayer/EngSelect.show()
 		$CanvasLayer/SciSelect.show()
-		
-		
 	else:
 		if cardColor == "green":
 			pass

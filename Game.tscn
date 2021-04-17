@@ -61,6 +61,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MathSelect" type="Button" parent="CanvasLayer"]
+margin_left = 221.649
+margin_top = -160.509
+margin_right = 377.649
+margin_bottom = -96.509
+text = "Math Card"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HistSelect" type="Button" parent="CanvasLayer"]
+margin_left = 54.2538
+margin_top = -161.568
+margin_right = 210.254
+margin_bottom = -97.5685
+text = "History Card"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EngSelect" type="Button" parent="CanvasLayer"]
+margin_left = 221.818
+margin_top = -85.2871
+margin_right = 377.818
+margin_bottom = -21.2871
+text = "English Card"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SciSelect" type="Button" parent="CanvasLayer"]
+margin_left = 54.0852
+margin_top = -86.3466
+margin_right = 210.085
+margin_bottom = -22.3466
+text = "Science Card"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Player Turn" type="Label" parent="CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 14.0
@@ -88,7 +128,7 @@ position = Vector2( 36.6828, 28.2129 )
 player = 5
 
 [node name="Die" type="AnimatedSprite" parent="."]
-position = Vector2( 216.706, 152.45 )
+position = Vector2( 207.558, 144.986 )
 frames = SubResource( 1 )
 animation = "roll"
 speed_scale = 1.5
@@ -96,6 +136,7 @@ speed_scale = 1.5
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="HUD"]
+visible = false
 margin_left = -477.0
 margin_top = -273.0
 margin_right = 546.0
@@ -106,6 +147,7 @@ __meta__ = {
 }
 
 [node name="StartButton" type="Button" parent="HUD"]
+visible = false
 margin_left = 136.154
 margin_top = 11.3461
 margin_right = 148.154
@@ -115,6 +157,7 @@ __meta__ = {
 }
 
 [node name="PlayerCount" type="HSlider" parent="HUD"]
+visible = false
 margin_left = 99.0
 margin_top = 55.0
 margin_right = 284.0
@@ -128,6 +171,7 @@ __meta__ = {
 }
 
 [node name="Player Selection" type="VBoxContainer" parent="HUD"]
+visible = false
 margin_left = 44.7171
 margin_top = 117.466
 margin_right = 84.7171
@@ -152,3 +196,7 @@ margin_right = 84.0
 margin_bottom = 20.0
 [connection signal="pressed" from="CanvasLayer/GoButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/RollButton" to="." method="_on_RollButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/MathSelect" to="." method="_on_MathSelect_pressed"]
+[connection signal="pressed" from="CanvasLayer/HistSelect" to="." method="_on_HistSelect_pressed"]
+[connection signal="pressed" from="CanvasLayer/EngSelect" to="." method="_on_EngSelect_pressed"]
+[connection signal="pressed" from="CanvasLayer/SciSelect" to="." method="_on_SciSelect_pressed"]

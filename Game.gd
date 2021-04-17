@@ -28,6 +28,10 @@ func _ready():
 	GameState.currentPlayerLabel = "Player 1"
 	update_label()
 	$CanvasLayer/RollButton.hide()
+	$CanvasLayer/MathSelect.hide()
+	$CanvasLayer/HistSelect.hide()
+	$CanvasLayer/EngSelect.hide()
+	$CanvasLayer/SciSelect.hide()
 
 # moves camera to parent
 func move_camera(p):
@@ -75,8 +79,42 @@ func card_player_interaction():
 	do_the_card_stuff(cardColor[tileId])
 
 
+func _on_MathSelect_pressed():
+	pass # Replace with function body.
+
+
+func _on_HistSelect_pressed():
+	pass # Replace with function body.
+
+
+func _on_EngSelect_pressed():
+	pass # Replace with function body.
+
+
+func _on_SciSelect_pressed():
+	pass # Replace with function body.
+
+
 func do_the_card_stuff(cardColor):
-	print(cardColor)
+	if cardColor == "black":
+		#end turn
+		pass
+	elif cardColor == "white":
+		$CanvasLayer/MathSelect.show()
+		$CanvasLayer/HistSelect.show()
+		$CanvasLayer/EngSelect.show()
+		$CanvasLayer/SciSelect.show()
+		
+		
+	else:
+		if cardColor == "green":
+			pass
+		if cardColor == "orange":
+			pass
+		if cardColor == "red":
+			pass
+		if cardColor == "purple":
+			pass
 
 
 func _on_EndTurn_pressed():
@@ -117,3 +155,4 @@ func _on_Button_pressed():
 	
 	#$HUD/TurnSwitch.visible=false
 	pass # Replace with function body.
+

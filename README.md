@@ -8,7 +8,7 @@ Lindsey Fares
 
 
 ### Introduction
-* 2-5 players
+* 2-6 players
 * Avg. gameplay 30-60 minutes
 * **Goal:** Become the first to graduate
 

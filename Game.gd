@@ -65,7 +65,6 @@ func _on_RollButton_pressed():
 		GameState.currentPlayer.move(randMove)
 		yield(GameState.currentPlayer, 'movedone')
 		card_player_interaction()
-		$CanvasLayer/EndTurn.show()
 		#moveBtn.visible = false
 		#endBtn.visible = true
 
@@ -98,7 +97,8 @@ func _on_SciSelect_pressed():
 
 func do_the_card_stuff(cardColor):
 	if cardColor == "black":
-		pass
+		$CanvasLayer/TurnSwitch/BoxLayout/Label.text = nextplayer[currentPlayerNum]+"'s turn"
+		$CanvasLayer/TurnSwitch.visible = true
 	elif cardColor == "white":
 		$CanvasLayer/MathSelect.show()
 		$CanvasLayer/HistSelect.show()
@@ -106,12 +106,16 @@ func do_the_card_stuff(cardColor):
 		$CanvasLayer/SciSelect.show()
 	else:
 		if cardColor == "green":
+			$CanvasLayer/EndTurn.show()
 			pass
 		if cardColor == "orange":
+			$CanvasLayer/EndTurn.show()
 			pass
 		if cardColor == "red":
+			$CanvasLayer/EndTurn.show()
 			pass
 		if cardColor == "purple":
+			$CanvasLayer/EndTurn.show()
 			pass
 
 func _on_EndTurn_pressed():

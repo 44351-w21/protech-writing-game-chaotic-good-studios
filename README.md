@@ -23,7 +23,7 @@ Lindsey Fares
   * **History, English, Math, or Science:** The player to your **_right_** will draw a trivia card that corresponds to the space you’ve landed on.
   * **Detention:** You will not draw a trivia card, and your turn is over.
   * **Exam Day:** Choose one of the four subject decks. The player to your **_right_** will draw a trivia card from that deck.
-* When answering a trivia question, the player to your **_right_** will read the card for you. Attempt to answer the question. *(We can just have a randomized question)*
+* When answering a trivia question, the player to your **_right_** will read the card for you. Attempt to answer the question.
   * **If you answer _correctly_:** Collect the card. The card will count as one credit.
   * **If you answer _incorrectly_:** The answer will not be revealed, and the card will be returned to the bottom of the deck. You collect zero credits.
 * Repeat steps 1-3 until any player obtains eight (8) credit hours.

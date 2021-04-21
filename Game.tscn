@@ -51,6 +51,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="EndTurn" type="Button" parent="CanvasLayer"]
+margin_left = 121.0
+margin_top = 98.0
+margin_right = 277.0
+margin_bottom = 162.0
+text = "End Turn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="RollButton" type="Button" parent="CanvasLayer"]
 margin_left = 121.0
 margin_top = 98.0
@@ -101,19 +111,52 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Player Turn" type="Label" parent="CanvasLayer"]
+[node name="PlayerTurn" type="Label" parent="CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 14.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Player Credits" type="Label" parent="CanvasLayer"]
+[node name="PlayerCredits" type="Label" parent="CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 14.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TurnSwitch" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxLayout" type="VBoxContainer" parent="CanvasLayer/TurnSwitch"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/TurnSwitch/BoxLayout"]
+margin_right = 87.0
+margin_bottom = 14.0
+text = "Player X Turn"
+
+[node name="SwitchTurnBtn" type="Button" parent="CanvasLayer/TurnSwitch/BoxLayout"]
+margin_top = 18.0
+margin_right = 87.0
+margin_bottom = 38.0
+text = "OK"
 
 [node name="Player3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 35.2316, 34.2338 )
@@ -170,7 +213,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Player Selection" type="VBoxContainer" parent="HUD"]
+[node name="PlayerSelection" type="VBoxContainer" parent="HUD"]
 visible = false
 margin_left = 44.7171
 margin_top = 117.466
@@ -180,98 +223,105 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Player 1" type="HBoxContainer" parent="HUD/Player Selection"]
+[node name="Player 1" type="HBoxContainer" parent="HUD/PlayerSelection"]
 margin_right = 84.0
 margin_bottom = 20.0
 
-[node name="Label" type="Label" parent="HUD/Player Selection/Player 1"]
+[node name="Label" type="Label" parent="HUD/PlayerSelection/Player 1"]
 margin_top = 3.0
 margin_right = 51.0
 margin_bottom = 17.0
 text = "Player 1"
 
-[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 1"]
+[node name="OptionButton" type="OptionButton" parent="HUD/PlayerSelection/Player 1"]
 margin_left = 55.0
 margin_right = 84.0
 margin_bottom = 20.0
 
-[node name="Player 2" type="HBoxContainer" parent="HUD/Player Selection"]
+[node name="Player 2" type="HBoxContainer" parent="HUD/PlayerSelection"]
+margin_top = 24.0
 margin_right = 84.0
-margin_bottom = 20.0
+margin_bottom = 44.0
 
-[node name="Label" type="Label" parent="HUD/Player Selection/Player 2"]
+[node name="Label" type="Label" parent="HUD/PlayerSelection/Player 2"]
 margin_top = 3.0
 margin_right = 51.0
 margin_bottom = 17.0
-text = "Player 1"
+text = "Player 2"
 
-[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 2"]
+[node name="OptionButton" type="OptionButton" parent="HUD/PlayerSelection/Player 2"]
 margin_left = 55.0
 margin_right = 84.0
 margin_bottom = 20.0
 
-[node name="Player 3" type="HBoxContainer" parent="HUD/Player Selection"]
+[node name="Player 3" type="HBoxContainer" parent="HUD/PlayerSelection"]
+margin_top = 48.0
 margin_right = 84.0
-margin_bottom = 20.0
+margin_bottom = 68.0
 
-[node name="Label" type="Label" parent="HUD/Player Selection/Player 3"]
+[node name="Label" type="Label" parent="HUD/PlayerSelection/Player 3"]
 margin_top = 3.0
 margin_right = 51.0
 margin_bottom = 17.0
-text = "Player 1"
+text = "Player 3"
 
-[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 3"]
+[node name="OptionButton" type="OptionButton" parent="HUD/PlayerSelection/Player 3"]
 margin_left = 55.0
 margin_right = 84.0
 margin_bottom = 20.0
 
-[node name="Player 4" type="HBoxContainer" parent="HUD/Player Selection"]
+[node name="Player 4" type="HBoxContainer" parent="HUD/PlayerSelection"]
+margin_top = 72.0
 margin_right = 84.0
-margin_bottom = 20.0
+margin_bottom = 92.0
 
-[node name="Label" type="Label" parent="HUD/Player Selection/Player 4"]
+[node name="Label" type="Label" parent="HUD/PlayerSelection/Player 4"]
 margin_top = 3.0
 margin_right = 51.0
 margin_bottom = 17.0
-text = "Player 1"
+text = "Player 4"
 
-[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 4"]
+[node name="OptionButton" type="OptionButton" parent="HUD/PlayerSelection/Player 4"]
 margin_left = 55.0
 margin_right = 84.0
 margin_bottom = 20.0
 
-[node name="Player 5" type="HBoxContainer" parent="HUD/Player Selection"]
+[node name="Player 5" type="HBoxContainer" parent="HUD/PlayerSelection"]
+margin_top = 96.0
 margin_right = 84.0
-margin_bottom = 20.0
+margin_bottom = 116.0
 
-[node name="Label" type="Label" parent="HUD/Player Selection/Player 5"]
+[node name="Label" type="Label" parent="HUD/PlayerSelection/Player 5"]
 margin_top = 3.0
 margin_right = 51.0
 margin_bottom = 17.0
-text = "Player 1"
+text = "Player 5"
 
-[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 5"]
+[node name="OptionButton" type="OptionButton" parent="HUD/PlayerSelection/Player 5"]
 margin_left = 55.0
 margin_right = 84.0
 margin_bottom = 20.0
 
-[node name="Player 6" type="HBoxContainer" parent="HUD/Player Selection"]
+[node name="Player 6" type="HBoxContainer" parent="HUD/PlayerSelection"]
+margin_top = 120.0
 margin_right = 84.0
-margin_bottom = 20.0
+margin_bottom = 140.0
 
-[node name="Label" type="Label" parent="HUD/Player Selection/Player 6"]
+[node name="Label" type="Label" parent="HUD/PlayerSelection/Player 6"]
 margin_top = 3.0
 margin_right = 51.0
 margin_bottom = 17.0
-text = "Player 1"
+text = "Player 6"
 
-[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 6"]
+[node name="OptionButton" type="OptionButton" parent="HUD/PlayerSelection/Player 6"]
 margin_left = 55.0
 margin_right = 84.0
 margin_bottom = 20.0
 [connection signal="pressed" from="CanvasLayer/GoButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/EndTurn" to="." method="_on_EndTurn_pressed"]
 [connection signal="pressed" from="CanvasLayer/RollButton" to="." method="_on_RollButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/MathSelect" to="." method="_on_MathSelect_pressed"]
 [connection signal="pressed" from="CanvasLayer/HistSelect" to="." method="_on_HistSelect_pressed"]
 [connection signal="pressed" from="CanvasLayer/EngSelect" to="." method="_on_EngSelect_pressed"]
 [connection signal="pressed" from="CanvasLayer/SciSelect" to="." method="_on_SciSelect_pressed"]
+[connection signal="pressed" from="CanvasLayer/TurnSwitch/BoxLayout/SwitchTurnBtn" to="." method="_on_SwitchTurnBtn_pressed"]

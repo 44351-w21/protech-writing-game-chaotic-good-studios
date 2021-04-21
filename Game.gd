@@ -28,6 +28,7 @@ func _ready():
 	GameState.currentPlayerLabel = "Player 1"
 	update_label()
 	$CanvasLayer/RollButton.hide()
+	$CanvasLayer/EndTurn.hide()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
@@ -64,7 +65,7 @@ func _on_RollButton_pressed():
 		GameState.currentPlayer.move(randMove)
 		yield(GameState.currentPlayer, 'movedone')
 		card_player_interaction()
-		$CanvasLayer/GoButton.show()
+		$CanvasLayer/EndTurn.show()
 		#moveBtn.visible = false
 		#endBtn.visible = true
 
@@ -97,7 +98,6 @@ func _on_SciSelect_pressed():
 
 func do_the_card_stuff(cardColor):
 	if cardColor == "black":
-		#end turn
 		pass
 	elif cardColor == "white":
 		$CanvasLayer/MathSelect.show()
@@ -114,14 +114,23 @@ func do_the_card_stuff(cardColor):
 		if cardColor == "purple":
 			pass
 
-
 func _on_EndTurn_pressed():
-	$HUD/TurnSwitch/Label.text=nextplayer[currentPlayerNum]+"'s turn"
-	$HUD/TurnSwitch.visible = true
+	$CanvasLayer/TurnSwitch/BoxLayout/Label.text = nextplayer[currentPlayerNum]+"'s turn"
+	$CanvasLayer/TurnSwitch.visible = true
 
 func _on_Button_pressed():
 	$CanvasLayer/GoButton.hide()
-	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
+	
+	_on_MoveButton_pressed()
+	#moveBtn.show()
+	#endBtn.hide()
+	#moveBtn.disabled=false
+	
+	#$HUD/TurnSwitch.visible=false
+	pass # Replace with function body.
+
+func _on_SwitchTurnBtn_pressed():
+	GameState.currentPlayerLabel = nextplayer[currentPlayerNum]
 	match currentPlayerNum:
 		0:
 			GameState.currentPlayer=p2
@@ -141,16 +150,12 @@ func _on_Button_pressed():
 		5:
 			GameState.currentPlayer=p1
 			currentPlayerNum=0
+			
 	update_spaceLabel(GameState.currentPlayer.space)
 	update_label()
 	
 	move_camera(GameState.currentPlayer)
-	_on_MoveButton_pressed()
 	
-	#moveBtn.show()
-	#endBtn.hide()
-	#moveBtn.disabled=false
-	
-	#$HUD/TurnSwitch.visible=false
-	pass # Replace with function body.
-
+	$CanvasLayer/TurnSwitch.visible = false
+	$CanvasLayer/EndTurn.hide()
+	$CanvasLayer/GoButton.show()

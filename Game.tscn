@@ -147,15 +147,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/TurnSwitch/BoxLayout"]
-margin_right = 87.0
+[node name="LostTurn" type="Label" parent="CanvasLayer/TurnSwitch/BoxLayout"]
+margin_right = 40.0
 margin_bottom = 14.0
-text = "Player X Turn"
+align = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/TurnSwitch/BoxLayout"]
+margin_top = 18.0
+margin_right = 40.0
+margin_bottom = 32.0
+align = 1
 
 [node name="SwitchTurnBtn" type="Button" parent="CanvasLayer/TurnSwitch/BoxLayout"]
-margin_top = 18.0
-margin_right = 87.0
-margin_bottom = 38.0
+margin_top = 36.0
+margin_right = 40.0
+margin_bottom = 56.0
 text = "OK"
 
 [node name="Player3" parent="." instance=ExtResource( 3 )]

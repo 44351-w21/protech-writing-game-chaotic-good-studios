@@ -97,6 +97,7 @@ func _on_SciSelect_pressed():
 
 func do_the_card_stuff(cardColor):
 	if cardColor == "black":
+		$CanvasLayer/TurnSwitch/BoxLayout/LostTurn.text = "Sorry, you lose a turn."
 		$CanvasLayer/TurnSwitch/BoxLayout/Label.text = nextplayer[currentPlayerNum]+"'s turn"
 		$CanvasLayer/TurnSwitch.visible = true
 	elif cardColor == "white":

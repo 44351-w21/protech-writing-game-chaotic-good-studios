@@ -194,6 +194,81 @@ text = "Player 1"
 margin_left = 55.0
 margin_right = 84.0
 margin_bottom = 20.0
+
+[node name="Player 2" type="HBoxContainer" parent="HUD/Player Selection"]
+margin_right = 84.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="HUD/Player Selection/Player 2"]
+margin_top = 3.0
+margin_right = 51.0
+margin_bottom = 17.0
+text = "Player 1"
+
+[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 2"]
+margin_left = 55.0
+margin_right = 84.0
+margin_bottom = 20.0
+
+[node name="Player 3" type="HBoxContainer" parent="HUD/Player Selection"]
+margin_right = 84.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="HUD/Player Selection/Player 3"]
+margin_top = 3.0
+margin_right = 51.0
+margin_bottom = 17.0
+text = "Player 1"
+
+[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 3"]
+margin_left = 55.0
+margin_right = 84.0
+margin_bottom = 20.0
+
+[node name="Player 4" type="HBoxContainer" parent="HUD/Player Selection"]
+margin_right = 84.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="HUD/Player Selection/Player 4"]
+margin_top = 3.0
+margin_right = 51.0
+margin_bottom = 17.0
+text = "Player 1"
+
+[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 4"]
+margin_left = 55.0
+margin_right = 84.0
+margin_bottom = 20.0
+
+[node name="Player 5" type="HBoxContainer" parent="HUD/Player Selection"]
+margin_right = 84.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="HUD/Player Selection/Player 5"]
+margin_top = 3.0
+margin_right = 51.0
+margin_bottom = 17.0
+text = "Player 1"
+
+[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 5"]
+margin_left = 55.0
+margin_right = 84.0
+margin_bottom = 20.0
+
+[node name="Player 6" type="HBoxContainer" parent="HUD/Player Selection"]
+margin_right = 84.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="HUD/Player Selection/Player 6"]
+margin_top = 3.0
+margin_right = 51.0
+margin_bottom = 17.0
+text = "Player 1"
+
+[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 6"]
+margin_left = 55.0
+margin_right = 84.0
+margin_bottom = 20.0
 [connection signal="pressed" from="CanvasLayer/GoButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/RollButton" to="." method="_on_RollButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/MathSelect" to="." method="_on_MathSelect_pressed"]

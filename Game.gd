@@ -55,9 +55,8 @@ func update_spaceLabel(_space):
 	return
 
 
-func _on_MoveButton_pressed():
-	$Die.play()
-	$CanvasLayer/RollButton.show()
+#func _on_MoveButton_pressed():
+
 
 func _on_RollButton_pressed():
 	rng.randomize()
@@ -127,12 +126,14 @@ func do_the_card_stuff(cardColor):
 func _on_EndTurn_pressed():
 	currentPlayerNum += 1
 	currentPlayerNum = currentPlayerNum % playerCount
+	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
 	$CanvasLayer/TurnSwitch/BoxLayout/Label.text = GameState.currentPlayerLabel + "'s turn"
 	$CanvasLayer/TurnSwitch.visible = true
 
 func _on_Button_pressed():
 	$CanvasLayer/GoButton.hide()
-	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
+	$Die.play()
+	$CanvasLayer/RollButton.show()
 	#currentPlayerNum=(currentPlayerNum+1)%int(playerCount)
 	#GameState.currentPlayer=plist[currentPlayerNum]
 	

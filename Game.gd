@@ -11,7 +11,7 @@ onready var plist= [p1,p2,p3,p4,p5,p6]
 onready var tilemap = $GameBoard/TileMap
 var cardColor = ["black","green","white","orange","purple","red"]
 
-var playerCount=3
+var playerCount = 3
 var black = 0
 var green = 1
 var white = 2
@@ -19,7 +19,7 @@ var orange = 3
 var purple = 4
 var red = 5
 var rng = RandomNumberGenerator.new()
-var nextplayer = ['Player 2','Player 3','Player 4','Player 5','Player 6','Player 1']
+var nextplayer = ['Player 1', 'Player 2','Player 3','Player 4','Player 5','Player 6']
 var currentPlayerNum = 0
 signal endCard;
 
@@ -37,6 +37,7 @@ func _ready():
 	$CanvasLayer/SciSelect.hide()
 	$CanvasLayer/GoButton.hide()
 	$HUD/Canvas/Control.show()
+	$CanvasLayer/EndTurn.hide()
 
 # moves camera to parent
 func move_camera(p):
@@ -124,14 +125,16 @@ func do_the_card_stuff(cardColor):
 			pass
 
 func _on_EndTurn_pressed():
-	$CanvasLayer/TurnSwitch/BoxLayout/Label.text = nextplayer[currentPlayerNum]+"'s turn"
+	currentPlayerNum += 1
+	currentPlayerNum = currentPlayerNum % playerCount
+	$CanvasLayer/TurnSwitch/BoxLayout/Label.text = GameState.currentPlayerLabel + "'s turn"
 	$CanvasLayer/TurnSwitch.visible = true
 
 func _on_Button_pressed():
 	$CanvasLayer/GoButton.hide()
 	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
-	currentPlayerNum=(currentPlayerNum+1)%int(playerCount)
-	GameState.currentPlayer=plist[currentPlayerNum]
+	#currentPlayerNum=(currentPlayerNum+1)%int(playerCount)
+	#GameState.currentPlayer=plist[currentPlayerNum]
 	
 	update_spaceLabel(GameState.currentPlayer.space)
 	update_label()
@@ -150,7 +153,7 @@ func _on_Button_pressed():
 
 func _on_StartButton_pressed():
 	$HUD/Canvas/Control.hide()
-	playerCount=$HUD/Canvas/Control/PlayerCount.value
+	playerCount= int ($HUD/Canvas/Control/PlayerCount.value)
 	for i in range(6):
 		plist[i].hide()
 	
@@ -158,4 +161,18 @@ func _on_StartButton_pressed():
 	for i in range(playerCount):
 		plist[i].show()
 
+	$CanvasLayer/GoButton.show()
+
+
+func _on_SwitchTurnBtn_pressed():
+	GameState.currentPlayerLabel = nextplayer[currentPlayerNum]
+	GameState.currentPlayer = plist[currentPlayerNum]
+	
+	update_spaceLabel(GameState.currentPlayer.space)
+	update_label()
+	
+	move_camera(GameState.currentPlayer)
+	
+	$CanvasLayer/TurnSwitch.visible = false
+	$CanvasLayer/EndTurn.hide()
 	$CanvasLayer/GoButton.show()

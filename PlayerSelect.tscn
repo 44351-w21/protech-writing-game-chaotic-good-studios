@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://PlayerSelect.gd" type="Script" id=1]
+
+[node name="Player" type="HBoxContainer"]
+margin_right = 84.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 3.0
+margin_right = 39.0
+margin_bottom = 17.0
+text = "Player"
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 43.0
+margin_right = 72.0
+margin_bottom = 20.0

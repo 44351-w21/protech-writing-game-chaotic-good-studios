@@ -7,8 +7,11 @@ onready var p3 = $Player3
 onready var p4 = $Player4
 onready var p5 = $Player5
 onready var p6 = $Player6
+onready var plist= [p1,p2,p3,p4,p5,p6]
 onready var tilemap = $GameBoard/TileMap
 var cardColor = ["black","green","white","orange","purple","red"]
+
+var playerCount=3
 var black = 0
 var green = 1
 var white = 2
@@ -32,6 +35,8 @@ func _ready():
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
 	$CanvasLayer/SciSelect.hide()
+	$CanvasLayer/GoButton.hide()
+	$HUD/Canvas/Control.show()
 
 # moves camera to parent
 func move_camera(p):
@@ -122,25 +127,9 @@ func _on_EndTurn_pressed():
 func _on_Button_pressed():
 	$CanvasLayer/GoButton.hide()
 	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
-	match currentPlayerNum:
-		0:
-			GameState.currentPlayer=p2
-			currentPlayerNum=1
-		1:
-			GameState.currentPlayer=p3
-			currentPlayerNum=2
-		2:
-			GameState.currentPlayer=p4
-			currentPlayerNum=3
-		3:
-			GameState.currentPlayer=p5
-			currentPlayerNum=4
-		4:
-			GameState.currentPlayer=p6
-			currentPlayerNum=5
-		5:
-			GameState.currentPlayer=p1
-			currentPlayerNum=0
+	currentPlayerNum=(currentPlayerNum+1)%int(playerCount)
+	GameState.currentPlayer=plist[currentPlayerNum]
+	
 	update_spaceLabel(GameState.currentPlayer.space)
 	update_label()
 	
@@ -154,3 +143,15 @@ func _on_Button_pressed():
 	#$HUD/TurnSwitch.visible=false
 	pass # Replace with function body.
 
+
+
+func _on_StartButton_pressed():
+	$HUD/Canvas/Control.hide()
+	$CanvasLayer/GoButton.show()
+	playerCount=$HUD/Canvas/Control/PlayerCount.value
+	for i in range(6):
+		plist[i].hide()
+	
+	
+	for i in range(playerCount):
+		plist[i].show()

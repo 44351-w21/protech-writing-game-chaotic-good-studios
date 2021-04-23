@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://GameBoard.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Assets/Players/PNG/Dice/dieRed6.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Players/PNG/Dice/dieRed3.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Players/PNG/Dice/dieRed5.png" type="Texture" id=9]
+[ext_resource path="res://HUD.gd" type="Script" id=10]
+[ext_resource path="res://PlayerSelect.tscn" type="PackedScene" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -28,16 +30,28 @@ position = Vector2( 36, 23 )
 current = true
 smoothing_enabled = true
 
-[node name="Player5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 28.4171, 30.4579 )
-player = 4
-
 [node name="Player1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 29.0342, 29.3863 )
 
 [node name="Player2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 23.807, 29.7151 )
 player = 1
+
+[node name="Player3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 23.807, 29.7151 )
+player = 2
+
+[node name="Player4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 23.807, 29.7151 )
+player = 3
+
+[node name="Player5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 23.807, 29.7151 )
+player = 4
+
+[node name="Player6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 23.807, 29.7151 )
+player = 5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -115,53 +129,56 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Player3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 35.2316, 34.2338 )
-player = 2
-
-[node name="Player4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 30.0045, 27.4192 )
-player = 3
-
-[node name="Player6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 36.6828, 28.2129 )
-player = 5
-
 [node name="Die" type="AnimatedSprite" parent="."]
 position = Vector2( 207.558, 144.986 )
 frames = SubResource( 1 )
 animation = "roll"
 speed_scale = 1.5
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ColorRect" type="ColorRect" parent="HUD"]
-visible = false
-margin_left = -477.0
-margin_top = -273.0
-margin_right = 546.0
-margin_bottom = 323.0
+[node name="Canvas" type="CanvasLayer" parent="HUD"]
+
+[node name="Control" type="Control" parent="HUD/Canvas"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="HUD/Canvas/Control"]
+margin_left = 3.4397
+margin_top = 0.517609
+margin_right = 1026.44
+margin_bottom = 596.518
 color = Color( 0, 0.74902, 0.74902, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartButton" type="Button" parent="HUD"]
-visible = false
-margin_left = 136.154
-margin_top = 11.3461
-margin_right = 148.154
-margin_bottom = 31.3461
+[node name="Player Selection" type="VBoxContainer" parent="HUD/Canvas/Control"]
+margin_left = 479.709
+margin_top = 336.472
+margin_right = 563.709
+margin_bottom = 376.472
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerCount" type="HSlider" parent="HUD"]
-visible = false
-margin_left = 99.0
-margin_top = 55.0
-margin_right = 284.0
-margin_bottom = 71.0
+[node name="Player" parent="HUD/Canvas/Control/Player Selection" instance=ExtResource( 11 )]
+
+[node name="PlayerCount" type="HSlider" parent="HUD/Canvas/Control"]
+margin_left = 423.297
+margin_top = 269.571
+margin_right = 608.297
+margin_bottom = 285.571
 min_value = 2.0
 max_value = 6.0
 value = 2.0
@@ -170,108 +187,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Player Selection" type="VBoxContainer" parent="HUD"]
-visible = false
-margin_left = 44.7171
-margin_top = 117.466
-margin_right = 84.7171
-margin_bottom = 157.466
+[node name="StartButton" type="Button" parent="HUD/Canvas/Control"]
+margin_left = 470.35
+margin_top = 173.077
+margin_right = 553.35
+margin_bottom = 193.077
+text = "Start Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Player 1" type="HBoxContainer" parent="HUD/Player Selection"]
-margin_right = 84.0
-margin_bottom = 20.0
-
-[node name="Label" type="Label" parent="HUD/Player Selection/Player 1"]
-margin_top = 3.0
-margin_right = 51.0
-margin_bottom = 17.0
-text = "Player 1"
-
-[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 1"]
-margin_left = 55.0
-margin_right = 84.0
-margin_bottom = 20.0
-
-[node name="Player 2" type="HBoxContainer" parent="HUD/Player Selection"]
-margin_right = 84.0
-margin_bottom = 20.0
-
-[node name="Label" type="Label" parent="HUD/Player Selection/Player 2"]
-margin_top = 3.0
-margin_right = 51.0
-margin_bottom = 17.0
-text = "Player 1"
-
-[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 2"]
-margin_left = 55.0
-margin_right = 84.0
-margin_bottom = 20.0
-
-[node name="Player 3" type="HBoxContainer" parent="HUD/Player Selection"]
-margin_right = 84.0
-margin_bottom = 20.0
-
-[node name="Label" type="Label" parent="HUD/Player Selection/Player 3"]
-margin_top = 3.0
-margin_right = 51.0
-margin_bottom = 17.0
-text = "Player 1"
-
-[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 3"]
-margin_left = 55.0
-margin_right = 84.0
-margin_bottom = 20.0
-
-[node name="Player 4" type="HBoxContainer" parent="HUD/Player Selection"]
-margin_right = 84.0
-margin_bottom = 20.0
-
-[node name="Label" type="Label" parent="HUD/Player Selection/Player 4"]
-margin_top = 3.0
-margin_right = 51.0
-margin_bottom = 17.0
-text = "Player 1"
-
-[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 4"]
-margin_left = 55.0
-margin_right = 84.0
-margin_bottom = 20.0
-
-[node name="Player 5" type="HBoxContainer" parent="HUD/Player Selection"]
-margin_right = 84.0
-margin_bottom = 20.0
-
-[node name="Label" type="Label" parent="HUD/Player Selection/Player 5"]
-margin_top = 3.0
-margin_right = 51.0
-margin_bottom = 17.0
-text = "Player 1"
-
-[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 5"]
-margin_left = 55.0
-margin_right = 84.0
-margin_bottom = 20.0
-
-[node name="Player 6" type="HBoxContainer" parent="HUD/Player Selection"]
-margin_right = 84.0
-margin_bottom = 20.0
-
-[node name="Label" type="Label" parent="HUD/Player Selection/Player 6"]
-margin_top = 3.0
-margin_right = 51.0
-margin_bottom = 17.0
-text = "Player 1"
-
-[node name="OptionButton" type="OptionButton" parent="HUD/Player Selection/Player 6"]
-margin_left = 55.0
-margin_right = 84.0
-margin_bottom = 20.0
 [connection signal="pressed" from="CanvasLayer/GoButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/RollButton" to="." method="_on_RollButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/MathSelect" to="." method="_on_MathSelect_pressed"]
 [connection signal="pressed" from="CanvasLayer/HistSelect" to="." method="_on_HistSelect_pressed"]
 [connection signal="pressed" from="CanvasLayer/EngSelect" to="." method="_on_EngSelect_pressed"]
 [connection signal="pressed" from="CanvasLayer/SciSelect" to="." method="_on_SciSelect_pressed"]
+[connection signal="value_changed" from="HUD/Canvas/Control/PlayerCount" to="HUD" method="_on_PlayerCount_value_changed"]
+[connection signal="pressed" from="HUD/Canvas/Control/StartButton" to="." method="_on_StartButton_pressed"]

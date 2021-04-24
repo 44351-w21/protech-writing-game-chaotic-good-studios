@@ -244,6 +244,7 @@ text = "Start Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="CanvasLayer/GoButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/EndTurn" to="." method="_on_EndTurn_pressed"]
 [connection signal="pressed" from="CanvasLayer/RollButton" to="." method="_on_RollButton_pressed"]

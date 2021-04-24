@@ -177,3 +177,15 @@ func _on_SwitchTurnBtn_pressed():
 	$CanvasLayer/TurnSwitch.visible = false
 	$CanvasLayer/EndTurn.hide()
 	$CanvasLayer/GoButton.show()
+	
+	
+	
+	
+	
+	
+# func _earn_Credits():
+	#if question == True:
+	#	currentPlayerScore += 1 
+#func _win_condition():
+#	if credits > 7:
+#		currentPlayer gameOver

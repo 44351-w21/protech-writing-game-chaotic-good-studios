@@ -44,4 +44,3 @@ func movespace():
 	tween.interpolate_property(self, "position", position,
 	position + dir * tilesize, 1.0/speed, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	tween.start()
-	

@@ -44,6 +44,7 @@ func _ready():
 	$HUD/Canvas/Control.show()
 	$CanvasLayer/EndTurn.hide()
 
+
 # moves camera to parent
 func move_camera(p):
 	cam.get_parent().remove_child(cam)
@@ -58,9 +59,6 @@ func update_label():
 func update_spaceLabel(_space):
 	#spaceLabel.text = str(space)	
 	return
-
-
-#func _on_MoveButton_pressed():
 
 
 func _on_RollButton_pressed():
@@ -92,17 +90,21 @@ func _on_MathSelect_pressed():
 	do_the_card_stuff("orange")
 	$CanvasLayer/EndTurn.show()
 
+
 func _on_HistSelect_pressed():
 	do_the_card_stuff("purple")
 	$CanvasLayer/EndTurn.show()
+
 
 func _on_EngSelect_pressed():
 	do_the_card_stuff("red")
 	$CanvasLayer/EndTurn.show()
 
+
 func _on_SciSelect_pressed():
 	do_the_card_stuff("green")
 	$CanvasLayer/EndTurn.show()
+
 
 func do_the_card_stuff(cardColor):
 	if cardColor == "black":
@@ -131,13 +133,55 @@ func do_the_card_stuff(cardColor):
 			emit_signal("historyCard")
 			$CanvasLayer/EndTurn.show()
 
+
+func scienceCard():
+	$Card/ScienceCard.show()
+	$CanvasLayer/MathSelect.hide()
+	$CanvasLayer/HistSelect.hide()
+	$CanvasLayer/EngSelect.hide()
+	$CanvasLayer/SciSelect.hide()
+	pass
+
+
+func historyCard():
+	$Card/HistoryCard.show()
+	$CanvasLayer/MathSelect.hide()
+	$CanvasLayer/HistSelect.hide()
+	$CanvasLayer/EngSelect.hide()
+	$CanvasLayer/SciSelect.hide()
+	pass
+
+
+func englishCard():
+	$Card/EnglishCard.show()
+	$CanvasLayer/MathSelect.hide()
+	$CanvasLayer/HistSelect.hide()
+	$CanvasLayer/EngSelect.hide()
+	$CanvasLayer/SciSelect.hide()
+	pass
+
+
+func mathCard():
+	$Card/MathCard.show()
+	$CanvasLayer/MathSelect.hide()
+	$CanvasLayer/HistSelect.hide()
+	$CanvasLayer/EngSelect.hide()
+	$CanvasLayer/SciSelect.hide()
+	pass
+
+
 func _on_EndTurn_pressed():
+	$Card/MathCard.hide()
+	$Card/EnglishCard.hide()
+	$Card/ScienceCard.hide()
+	$Card/HistoryCard.hide()
 	currentPlayerNum += 1
 	currentPlayerNum = currentPlayerNum % playerCount
 	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
 	$CanvasLayer/TurnSwitch/BoxLayout/LostTurn.text = ''
 	$CanvasLayer/TurnSwitch/BoxLayout/Label.text = GameState.currentPlayerLabel + "'s turn"
 	$CanvasLayer/TurnSwitch.visible = true
+
 
 func _on_Button_pressed():
 	$CanvasLayer/GoButton.hide()
@@ -157,8 +201,7 @@ func _on_Button_pressed():
 	
 	#$HUD/TurnSwitch.visible=false
 	$CanvasLayer/RollButton.show()
-	pass # Replace with function body.
-
+	pass # Replace with function body
 
 
 func _on_StartButton_pressed():
@@ -167,10 +210,8 @@ func _on_StartButton_pressed():
 	for i in range(6):
 		plist[i].hide()
 	
-	
 	for i in range(playerCount):
 		plist[i].show()
-
 	$CanvasLayer/GoButton.show()
 
 
@@ -186,12 +227,8 @@ func _on_SwitchTurnBtn_pressed():
 	$CanvasLayer/TurnSwitch.visible = false
 	$CanvasLayer/EndTurn.hide()
 	$CanvasLayer/GoButton.show()
-	
-	
-	
-	
-	
-	
+
+
 # func _earn_Credits():
 	#if question == True:
 	#	currentPlayerScore += 1 

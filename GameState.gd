@@ -12,4 +12,3 @@ func _ready():
 
 func update_spaceLabel(spacenum):
 	game.update_spaceLabel(spacenum)
-	

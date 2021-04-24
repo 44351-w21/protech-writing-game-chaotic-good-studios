@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://GameBoard.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Players/PNG/Dice/dieRed5.png" type="Texture" id=9]
 [ext_resource path="res://HUD.gd" type="Script" id=10]
 [ext_resource path="res://PlayerSelect.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Card.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -53,6 +54,14 @@ player = 4
 position = Vector2( 23.807, 29.7151 )
 player = 5
 
+[node name="Card" parent="." instance=ExtResource( 12 )]
+
+[node name="Die" type="AnimatedSprite" parent="."]
+position = Vector2( 207.558, 144.986 )
+frames = SubResource( 1 )
+animation = "roll"
+speed_scale = 1.5
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GoButton" type="Button" parent="CanvasLayer"]
@@ -86,40 +95,40 @@ __meta__ = {
 }
 
 [node name="MathSelect" type="Button" parent="CanvasLayer"]
-margin_left = 221.649
-margin_top = -160.509
-margin_right = 377.649
-margin_bottom = -96.509
+margin_left = 297.482
+margin_top = 182.053
+margin_right = 453.482
+margin_bottom = 246.053
 text = "Math Card"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HistSelect" type="Button" parent="CanvasLayer"]
-margin_left = 54.2538
-margin_top = -161.568
-margin_right = 210.254
-margin_bottom = -97.5685
+margin_left = 135.912
+margin_top = 182.293
+margin_right = 291.912
+margin_bottom = 246.293
 text = "History Card"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="EngSelect" type="Button" parent="CanvasLayer"]
-margin_left = 221.818
-margin_top = -85.2871
-margin_right = 377.818
-margin_bottom = -21.2871
+margin_left = 295.627
+margin_top = 250.334
+margin_right = 451.627
+margin_bottom = 314.334
 text = "English Card"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SciSelect" type="Button" parent="CanvasLayer"]
-margin_left = 54.0852
-margin_top = -86.3466
-margin_right = 210.085
-margin_bottom = -22.3466
+margin_left = 136.492
+margin_top = 250.023
+margin_right = 292.492
+margin_bottom = 314.023
 text = "Science Card"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -177,12 +186,6 @@ margin_top = 18.0
 margin_right = 87.0
 margin_bottom = 38.0
 text = "OK"
-
-[node name="Die" type="AnimatedSprite" parent="."]
-position = Vector2( 207.558, 144.986 )
-frames = SubResource( 1 )
-animation = "roll"
-speed_scale = 1.5
 
 [node name="HUD" type="Control" parent="."]
 margin_right = 40.0
@@ -246,6 +249,10 @@ text = "Start Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="englishCard" from="." to="." method="englishCard"]
+[connection signal="historyCard" from="." to="." method="historyCard"]
+[connection signal="mathCard" from="." to="." method="mathCard"]
+[connection signal="scienceCard" from="." to="." method="scienceCard"]
 [connection signal="pressed" from="CanvasLayer/GoButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/EndTurn" to="." method="_on_EndTurn_pressed"]
 [connection signal="pressed" from="CanvasLayer/RollButton" to="." method="_on_RollButton_pressed"]

@@ -21,7 +21,12 @@ var red = 5
 var rng = RandomNumberGenerator.new()
 var nextplayer = ['Player 1', 'Player 2','Player 3','Player 4','Player 5','Player 6']
 var currentPlayerNum = 0
-signal endCard;
+
+signal endCard
+signal historyCard
+signal mathCard
+signal englishCard
+signal scienceCard
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -84,23 +89,26 @@ func card_player_interaction():
 
 
 func _on_MathSelect_pressed():
-	pass # Replace with function body.
-
+	do_the_card_stuff("orange")
+	$CanvasLayer/EndTurn.show()
 
 func _on_HistSelect_pressed():
-	pass # Replace with function body.
-
+	do_the_card_stuff("purple")
+	$CanvasLayer/EndTurn.show()
 
 func _on_EngSelect_pressed():
-	pass # Replace with function body.
-
+	do_the_card_stuff("red")
+	$CanvasLayer/EndTurn.show()
 
 func _on_SciSelect_pressed():
-	pass # Replace with function body.
-
+	do_the_card_stuff("green")
+	$CanvasLayer/EndTurn.show()
 
 func do_the_card_stuff(cardColor):
 	if cardColor == "black":
+		currentPlayerNum += 1
+		currentPlayerNum = currentPlayerNum % playerCount
+		GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
 		$CanvasLayer/TurnSwitch/BoxLayout/LostTurn.text = "Sorry, you lose a turn."
 		$CanvasLayer/TurnSwitch/BoxLayout/Label.text = nextplayer[currentPlayerNum]+"'s turn"
 		$CanvasLayer/TurnSwitch.visible = true
@@ -111,22 +119,23 @@ func do_the_card_stuff(cardColor):
 		$CanvasLayer/SciSelect.show()
 	else:
 		if cardColor == "green":
+			emit_signal("scienceCard")
 			$CanvasLayer/EndTurn.show()
-			pass
 		if cardColor == "orange":
+			emit_signal("mathCard")
 			$CanvasLayer/EndTurn.show()
-			pass
 		if cardColor == "red":
+			emit_signal("englishCard")
 			$CanvasLayer/EndTurn.show()
-			pass
 		if cardColor == "purple":
+			emit_signal("historyCard")
 			$CanvasLayer/EndTurn.show()
-			pass
 
 func _on_EndTurn_pressed():
 	currentPlayerNum += 1
 	currentPlayerNum = currentPlayerNum % playerCount
 	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
+	$CanvasLayer/TurnSwitch/BoxLayout/LostTurn.text = ''
 	$CanvasLayer/TurnSwitch/BoxLayout/Label.text = GameState.currentPlayerLabel + "'s turn"
 	$CanvasLayer/TurnSwitch.visible = true
 

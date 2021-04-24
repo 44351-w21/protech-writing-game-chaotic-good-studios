@@ -164,11 +164,13 @@ __meta__ = {
 [node name="LostTurn" type="Label" parent="CanvasLayer/TurnSwitch/BoxLayout"]
 margin_right = 40.0
 margin_bottom = 14.0
+align = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/TurnSwitch/BoxLayout"]
 margin_right = 87.0
 margin_bottom = 14.0
 text = "Player X Turn"
+align = 1
 
 [node name="SwitchTurnBtn" type="Button" parent="CanvasLayer/TurnSwitch/BoxLayout"]
 margin_top = 18.0
@@ -244,7 +246,6 @@ text = "Start Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="pressed" from="CanvasLayer/GoButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/EndTurn" to="." method="_on_EndTurn_pressed"]
 [connection signal="pressed" from="CanvasLayer/RollButton" to="." method="_on_RollButton_pressed"]

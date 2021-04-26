@@ -54,10 +54,13 @@ player = 4
 position = Vector2( 23.807, 29.7151 )
 player = 5
 
-[node name="Card" parent="." instance=ExtResource( 12 )]
+[node name="DieCard" type="CanvasLayer" parent="."]
 
-[node name="Die" type="AnimatedSprite" parent="."]
-position = Vector2( 207.558, 144.986 )
+[node name="Card" parent="DieCard" instance=ExtResource( 12 )]
+position = Vector2( 559.249, 308.958 )
+
+[node name="Die" type="AnimatedSprite" parent="DieCard"]
+position = Vector2( 753.445, 417.929 )
 frames = SubResource( 1 )
 animation = "roll"
 speed_scale = 1.5
@@ -198,6 +201,7 @@ __meta__ = {
 [node name="Canvas" type="CanvasLayer" parent="HUD"]
 
 [node name="Control" type="Control" parent="HUD/Canvas"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {

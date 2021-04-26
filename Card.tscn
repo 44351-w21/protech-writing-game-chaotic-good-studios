@@ -10,19 +10,23 @@
 [node name="EnglishCard" type="Sprite" parent="."]
 visible = false
 rotation = 1.5708
+scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 
 [node name="ScienceCard" type="Sprite" parent="."]
 visible = false
 rotation = 1.5708
+scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
 
 [node name="HistoryCard" type="Sprite" parent="."]
 visible = false
 rotation = 1.5708
+scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 
 [node name="MathCard" type="Sprite" parent="."]
 visible = false
 rotation = 1.5708
+scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )

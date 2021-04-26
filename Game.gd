@@ -43,6 +43,7 @@ func _ready():
 	$CanvasLayer/GoButton.hide()
 	$HUD/Canvas/Control.show()
 	$CanvasLayer/EndTurn.hide()
+	$DieCard/Die.hide()
 
 
 # moves camera to parent
@@ -64,11 +65,11 @@ func update_spaceLabel(_space):
 func _on_RollButton_pressed():
 	rng.randomize()
 	var randMove = rng.randi_range(1,6)
-	$Die.stop()
-	$Die.set_frame(randMove - 1)
+	$DieCard/Die.stop()
+	$DieCard/Die.set_frame(randMove - 1)
 	$CanvasLayer/RollButton.hide()
 	#moveBtn.disabled = true
-	if $Die.is_playing() == false:
+	if $DieCard/Die.is_playing() == false:
 		GameState.currentPlayer.move(randMove)
 		yield(GameState.currentPlayer, 'movedone')
 		card_player_interaction()
@@ -135,46 +136,46 @@ func do_the_card_stuff(cardColor):
 
 
 func scienceCard():
-	$Card/ScienceCard.show()
+	$DieCard/Card/ScienceCard.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
 	$CanvasLayer/SciSelect.hide()
-	pass
+	$DieCard/Die.hide()
 
 
 func historyCard():
-	$Card/HistoryCard.show()
+	$DieCard/Card/HistoryCard.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
 	$CanvasLayer/SciSelect.hide()
-	pass
+	$DieCard/Die.hide()
 
 
 func englishCard():
-	$Card/EnglishCard.show()
+	$DieCard/Card/EnglishCard.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
 	$CanvasLayer/SciSelect.hide()
-	pass
+	$DieCard/Die.hide()
 
 
 func mathCard():
-	$Card/MathCard.show()
+	$DieCard/Card/MathCard.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
 	$CanvasLayer/SciSelect.hide()
-	pass
+	$DieCard/Die.hide()
 
 
 func _on_EndTurn_pressed():
-	$Card/MathCard.hide()
-	$Card/EnglishCard.hide()
-	$Card/ScienceCard.hide()
-	$Card/HistoryCard.hide()
+	$DieCard/Card/MathCard.hide()
+	$DieCard/Card/EnglishCard.hide()
+	$DieCard/Card/ScienceCard.hide()
+	$DieCard/Card/HistoryCard.hide()
 	currentPlayerNum += 1
 	currentPlayerNum = currentPlayerNum % playerCount
 	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
@@ -184,8 +185,9 @@ func _on_EndTurn_pressed():
 
 
 func _on_Button_pressed():
+	$DieCard/Die.show()
 	$CanvasLayer/GoButton.hide()
-	$Die.play()
+	$DieCard/Die.play()
 	$CanvasLayer/RollButton.show()
 	#currentPlayerNum=(currentPlayerNum+1)%int(playerCount)
 	#GameState.currentPlayer=plist[currentPlayerNum]

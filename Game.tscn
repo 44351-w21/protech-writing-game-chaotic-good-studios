@@ -58,13 +58,16 @@ player = 5
 [node name="DieCard" type="CanvasLayer" parent="."]
 
 [node name="Card" parent="DieCard" instance=ExtResource( 12 )]
-position = Vector2( 559.249, 308.958 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="Trivia" parent="DieCard/Card" instance=ExtResource( 13 )]
-margin_left = -559.249
-margin_top = -308.958
-margin_right = -559.249
-margin_bottom = -308.958
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="Die" type="AnimatedSprite" parent="DieCard"]
 position = Vector2( 753.445, 417.929 )
@@ -208,6 +211,7 @@ __meta__ = {
 [node name="Canvas" type="CanvasLayer" parent="HUD"]
 
 [node name="Control" type="Control" parent="HUD/Canvas"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {

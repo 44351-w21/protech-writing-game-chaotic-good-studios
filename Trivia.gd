@@ -8,7 +8,7 @@ var questionsHist
 var qindex = 0
 
 
-onready var qtext = $VBoxContainer/Control/VBoxContainer/Choices/VBoxContainer2/Question
+onready var qtext = $VBoxContainer/Control/VBoxContainer2/Question
 onready var atexts = [$VBoxContainer/Control/VBoxContainer2/Choices/Answer1, 
 $VBoxContainer/Control/VBoxContainer2/Choices/Answer2, 
 $VBoxContainer/Control/VBoxContainer2/Choices/Answer3, 

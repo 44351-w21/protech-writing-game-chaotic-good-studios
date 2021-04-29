@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://GameBoard.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://HUD.gd" type="Script" id=10]
 [ext_resource path="res://PlayerSelect.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Card.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Trivia.tscn" type="PackedScene" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -58,6 +59,12 @@ player = 5
 
 [node name="Card" parent="DieCard" instance=ExtResource( 12 )]
 position = Vector2( 559.249, 308.958 )
+
+[node name="Trivia" parent="DieCard/Card" instance=ExtResource( 13 )]
+margin_left = -559.249
+margin_top = -308.958
+margin_right = -559.249
+margin_bottom = -308.958
 
 [node name="Die" type="AnimatedSprite" parent="DieCard"]
 position = Vector2( 753.445, 417.929 )
@@ -201,7 +208,6 @@ __meta__ = {
 [node name="Canvas" type="CanvasLayer" parent="HUD"]
 
 [node name="Control" type="Control" parent="HUD/Canvas"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -253,9 +259,13 @@ text = "Start Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="english" from="." to="DieCard/Card/Trivia" method="_on_Game_english"]
 [connection signal="englishCard" from="." to="." method="englishCard"]
+[connection signal="history" from="." to="DieCard/Card/Trivia" method="_on_Game_history"]
 [connection signal="historyCard" from="." to="." method="historyCard"]
+[connection signal="math" from="." to="DieCard/Card/Trivia" method="_on_Game_math"]
 [connection signal="mathCard" from="." to="." method="mathCard"]
+[connection signal="science" from="." to="DieCard/Card/Trivia" method="_on_Game_science"]
 [connection signal="scienceCard" from="." to="." method="scienceCard"]
 [connection signal="pressed" from="CanvasLayer/GoButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/EndTurn" to="." method="_on_EndTurn_pressed"]

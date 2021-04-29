@@ -27,6 +27,10 @@ signal historyCard
 signal mathCard
 signal englishCard
 signal scienceCard
+signal history
+signal math
+signal science
+signal english
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -123,15 +127,19 @@ func do_the_card_stuff(cardColor):
 	else:
 		if cardColor == "green":
 			emit_signal("scienceCard")
+			emit_signal("science")
 			$CanvasLayer/EndTurn.show()
 		if cardColor == "orange":
 			emit_signal("mathCard")
+			emit_signal("math")
 			$CanvasLayer/EndTurn.show()
 		if cardColor == "red":
 			emit_signal("englishCard")
+			emit_signal("english")
 			$CanvasLayer/EndTurn.show()
 		if cardColor == "purple":
 			emit_signal("historyCard")
+			emit_signal("history")
 			$CanvasLayer/EndTurn.show()
 
 

@@ -15,19 +15,19 @@
 [ext_resource path="res://Trivia.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=14]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 58
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 15
 font_data = ExtResource( 14 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 15
 font_data = ExtResource( 14 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 15
-font_data = ExtResource( 14 )
-
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 7 ) ],
 "loop": true,
@@ -76,7 +76,7 @@ margin_left = -512.0
 margin_top = -202.5
 margin_right = 512.0
 margin_bottom = -67.5
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Welcome to
 \"Graduation\"!"
@@ -94,7 +94,7 @@ margin_left = -512.0
 margin_top = -71.0
 margin_right = 512.0
 margin_bottom = -21.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Written by Ash Angels & Associates
 Designed by Chaotic Good Studios"
@@ -111,7 +111,7 @@ margin_left = -501.0
 margin_top = 125.0
 margin_right = 501.0
 margin_bottom = 260.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "How to Play:"
 align = 1
@@ -128,7 +128,7 @@ margin_left = -501.0
 margin_top = -49.5
 margin_right = 501.0
 margin_bottom = 85.5
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -260,7 +260,7 @@ margin_bottom = 4.4595
 
 [node name="Die" type="AnimatedSprite" parent="DieCard"]
 position = Vector2( 753.445, 417.929 )
-frames = SubResource( 1 )
+frames = SubResource( 4 )
 animation = "roll"
 speed_scale = 1.5
 

@@ -21,6 +21,7 @@ var red = 5
 var rng = RandomNumberGenerator.new()
 var nextplayer = ['Player 1', 'Player 2','Player 3','Player 4','Player 5','Player 6']
 var currentPlayerNum = 0
+var theRules
 
 signal endCard
 signal historyCard
@@ -49,6 +50,38 @@ func _ready():
 	$CanvasLayer/EndTurn.hide()
 	$DieCard/Die.hide()
 	$DieCard/Card/Trivia.hide()
+
+
+func _on_Rules_pressed():
+	$HUD/Canvas/Control/PlayerCount.hide()
+	$HUD/Canvas/Control/StartButton.hide()
+	$HUD/Canvas/Control/Rules.hide()
+	$HUD/Canvas/Control/WelcomeTitle.hide()
+	$HUD/Canvas/Control/Designers.hide()
+	$HUD/Canvas/Control/RulesHeader.show()
+	$HUD/Canvas/Control/RulesText.show()
+	$HUD/Canvas/Control/Back.show()
+	$HUD/Canvas/Control/PlayerSelection.hide()
+	ruleText()
+
+
+func _on_Back_pressed():
+	$HUD/Canvas/Control/PlayerCount.show()
+	$HUD/Canvas/Control/StartButton.show()
+	$HUD/Canvas/Control/Rules.show()
+	$HUD/Canvas/Control/WelcomeTitle.show()
+	$HUD/Canvas/Control/Designers.show()
+	$HUD/Canvas/Control/RulesHeader.hide()
+	$HUD/Canvas/Control/RulesText.hide()
+	$HUD/Canvas/Control/Back.hide()
+	$HUD/Canvas/Control/PlayerSelection.show()
+
+
+func ruleText():
+	var rules = File.new()
+	rules.open('res://gameRules.res', File.READ)
+	$HUD/Canvas/Control/RulesText.text = rules.get_as_text()
+	rules.close()
 
 
 # moves camera to parent

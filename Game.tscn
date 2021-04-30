@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://GameBoard.tscn" type="PackedScene" id=2]
@@ -13,6 +13,19 @@
 [ext_resource path="res://PlayerSelect.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Card.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Trivia.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=14]
+
+[sub_resource type="DynamicFont" id=2]
+size = 58
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 15
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 15
+font_data = ExtResource( 14 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -26,6 +39,177 @@ animations = [ {
 script = ExtResource( 1 )
 
 [node name="GameBoard" parent="." instance=ExtResource( 2 )]
+
+[node name="HUD" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Canvas" type="CanvasLayer" parent="HUD"]
+
+[node name="Control" type="Control" parent="HUD/Canvas"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="HUD/Canvas/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = 1.0
+color = Color( 0, 0.74902, 0.74902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WelcomeTitle" type="Label" parent="HUD/Canvas/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -202.5
+margin_right = 512.0
+margin_bottom = -67.5
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Welcome to
+\"Graduation\"!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Designers" type="Label" parent="HUD/Canvas/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -71.0
+margin_right = 512.0
+margin_bottom = -21.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Written by Ash Angels & Associates
+Designed by Chaotic Good Studios"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RulesHeader" type="Label" parent="HUD/Canvas/Control"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -501.0
+margin_top = 125.0
+margin_right = 501.0
+margin_bottom = 260.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "How to Play:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RulesText" type="Label" parent="HUD/Canvas/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -501.0
+margin_top = -49.5
+margin_right = 501.0
+margin_bottom = 85.5
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerSelection" type="VBoxContainer" parent="HUD/Canvas/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -42.0
+margin_top = 58.0
+margin_right = 42.0
+margin_bottom = 98.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="HUD/Canvas/Control/PlayerSelection" instance=ExtResource( 11 )]
+
+[node name="PlayerCount" type="HSlider" parent="HUD/Canvas/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -92.5
+margin_top = 29.0
+margin_right = 92.5
+margin_bottom = 45.0
+min_value = 2.0
+max_value = 6.0
+value = 2.0
+tick_count = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="HUD/Canvas/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -137.5
+margin_top = -19.0
+margin_right = -54.5
+margin_bottom = 1.0
+text = "Start Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rules" type="Button" parent="HUD/Canvas/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 56.5
+margin_top = -18.0
+margin_right = 143.5
+margin_bottom = 2.0
+text = "How to Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="HUD/Canvas/Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -49.5
+margin_top = -94.0
+margin_right = 49.5
+margin_bottom = -74.0
+text = "Back to Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GameCam" type="Camera2D" parent="."]
 position = Vector2( 36, 23 )
@@ -64,6 +248,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 
 [node name="Trivia" parent="DieCard/Card" instance=ExtResource( 13 )]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -82,6 +267,7 @@ speed_scale = 1.5
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GoButton" type="Button" parent="CanvasLayer"]
+visible = false
 margin_left = 121.0
 margin_top = 98.0
 margin_right = 277.0
@@ -92,6 +278,7 @@ __meta__ = {
 }
 
 [node name="EndTurn" type="Button" parent="CanvasLayer"]
+visible = false
 margin_left = 121.0
 margin_top = 98.0
 margin_right = 277.0
@@ -102,6 +289,7 @@ __meta__ = {
 }
 
 [node name="RollButton" type="Button" parent="CanvasLayer"]
+visible = false
 margin_left = 121.0
 margin_top = 98.0
 margin_right = 277.0
@@ -112,6 +300,7 @@ __meta__ = {
 }
 
 [node name="MathSelect" type="Button" parent="CanvasLayer"]
+visible = false
 margin_left = 297.482
 margin_top = 182.053
 margin_right = 453.482
@@ -122,6 +311,7 @@ __meta__ = {
 }
 
 [node name="HistSelect" type="Button" parent="CanvasLayer"]
+visible = false
 margin_left = 135.912
 margin_top = 182.293
 margin_right = 291.912
@@ -132,6 +322,7 @@ __meta__ = {
 }
 
 [node name="EngSelect" type="Button" parent="CanvasLayer"]
+visible = false
 margin_left = 295.627
 margin_top = 250.334
 margin_right = 451.627
@@ -142,6 +333,7 @@ __meta__ = {
 }
 
 [node name="SciSelect" type="Button" parent="CanvasLayer"]
+visible = false
 margin_left = 136.492
 margin_top = 250.023
 margin_right = 292.492
@@ -204,70 +396,6 @@ margin_top = 36.0
 margin_right = 83.0
 margin_bottom = 56.0
 text = "OK"
-
-[node name="HUD" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Canvas" type="CanvasLayer" parent="HUD"]
-
-[node name="Control" type="Control" parent="HUD/Canvas"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="HUD/Canvas/Control"]
-margin_left = 3.4397
-margin_top = 0.517609
-margin_right = 1026.44
-margin_bottom = 596.518
-color = Color( 0, 0.74902, 0.74902, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Player Selection" type="VBoxContainer" parent="HUD/Canvas/Control"]
-margin_left = 479.709
-margin_top = 336.472
-margin_right = 563.709
-margin_bottom = 376.472
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Player" parent="HUD/Canvas/Control/Player Selection" instance=ExtResource( 11 )]
-margin_right = 83.0
-
-[node name="PlayerCount" type="HSlider" parent="HUD/Canvas/Control"]
-margin_left = 423.297
-margin_top = 269.571
-margin_right = 608.297
-margin_bottom = 285.571
-min_value = 2.0
-max_value = 6.0
-value = 2.0
-tick_count = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="StartButton" type="Button" parent="HUD/Canvas/Control"]
-margin_left = 470.35
-margin_top = 173.077
-margin_right = 553.35
-margin_bottom = 193.077
-text = "Start Game"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="english" from="." to="DieCard/Card/Trivia" method="_on_Game_english"]
 [connection signal="englishCard" from="." to="." method="englishCard"]
 [connection signal="history" from="." to="DieCard/Card/Trivia" method="_on_Game_history"]
@@ -276,6 +404,10 @@ __meta__ = {
 [connection signal="mathCard" from="." to="." method="mathCard"]
 [connection signal="science" from="." to="DieCard/Card/Trivia" method="_on_Game_science"]
 [connection signal="scienceCard" from="." to="." method="scienceCard"]
+[connection signal="value_changed" from="HUD/Canvas/Control/PlayerCount" to="HUD" method="_on_PlayerCount_value_changed"]
+[connection signal="pressed" from="HUD/Canvas/Control/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="HUD/Canvas/Control/Rules" to="." method="_on_Rules_pressed"]
+[connection signal="pressed" from="HUD/Canvas/Control/Back" to="." method="_on_Back_pressed"]
 [connection signal="correct" from="DieCard/Card/Trivia" to="." method="_on_Trivia_correct"]
 [connection signal="incorrect" from="DieCard/Card/Trivia" to="." method="_on_Trivia_incorrect"]
 [connection signal="pressed" from="CanvasLayer/GoButton" to="." method="_on_Button_pressed"]
@@ -286,5 +418,3 @@ __meta__ = {
 [connection signal="pressed" from="CanvasLayer/EngSelect" to="." method="_on_EngSelect_pressed"]
 [connection signal="pressed" from="CanvasLayer/SciSelect" to="." method="_on_SciSelect_pressed"]
 [connection signal="pressed" from="CanvasLayer/TurnSwitch/BoxLayout/SwitchTurnBtn" to="." method="_on_SwitchTurnBtn_pressed"]
-[connection signal="value_changed" from="HUD/Canvas/Control/PlayerCount" to="HUD" method="_on_PlayerCount_value_changed"]
-[connection signal="pressed" from="HUD/Canvas/Control/StartButton" to="." method="_on_StartButton_pressed"]

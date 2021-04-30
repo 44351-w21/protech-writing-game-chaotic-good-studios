@@ -29,10 +29,11 @@ Lindsey Fares
 * Repeat steps 1-3 until any player obtains eight (8) credit hours.
   * This player is the first to graduate, and wins the game. 
 
-Current game assets are from Kenney
+Current game assets are from Kenney:
 * Prototype Textures: https://kenney.nl/assets/prototype-textures
 * Boardgame Pack: https://www.kenney.nl/assets/boardgame-pack
 * Kenney Fonts: https://kenney.nl/assets/kenney-fonts
 
-Trivia Questions are from Open Trivia Database:
+Trivia Questions are from...:
 * https://opentdb.com/api_config.php
+* https://icebreakerideas.com/math-trivia/

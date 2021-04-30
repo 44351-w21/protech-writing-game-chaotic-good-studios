@@ -40,31 +40,30 @@ align = 1
 [node name="Choices" type="VBoxContainer" parent="VBoxContainer/Control/VBoxContainer2"]
 margin_top = 18.0
 margin_right = 1024.0
-margin_bottom = 86.0
+margin_bottom = 110.0
 
-[node name="Answer1" type="Label" parent="VBoxContainer/Control/VBoxContainer2/Choices"]
+[node name="Answer1" type="Button" parent="VBoxContainer/Control/VBoxContainer2/Choices"]
 margin_right = 1024.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-align = 1
+margin_bottom = 20.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
-[node name="Answer2" type="Label" parent="VBoxContainer/Control/VBoxContainer2/Choices"]
-margin_top = 18.0
+[node name="Answer2" type="Button" parent="VBoxContainer/Control/VBoxContainer2/Choices"]
+margin_top = 24.0
 margin_right = 1024.0
-margin_bottom = 32.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-align = 1
+margin_bottom = 44.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 
-[node name="Answer3" type="Label" parent="VBoxContainer/Control/VBoxContainer2/Choices"]
-margin_top = 36.0
-margin_right = 1024.0
-margin_bottom = 50.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-align = 1
-
-[node name="Answer4" type="Label" parent="VBoxContainer/Control/VBoxContainer2/Choices"]
-margin_top = 54.0
+[node name="Answer3" type="Button" parent="VBoxContainer/Control/VBoxContainer2/Choices"]
+margin_top = 48.0
 margin_right = 1024.0
 margin_bottom = 68.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-align = 1
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer4" type="Button" parent="VBoxContainer/Control/VBoxContainer2/Choices"]
+margin_top = 72.0
+margin_right = 1024.0
+margin_bottom = 92.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )

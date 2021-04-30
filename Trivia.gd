@@ -42,26 +42,58 @@ func load_trivia():
 func _on_Game_english():
 	qtext.text = questionsEng.result[qindex]['question']
 	questionsEng.result[qindex]['answers'].shuffle()
+	var answer = questionsEng.result[qindex]['answer']
+	
 	for i in range(4):
 		atexts[i].text = questionsEng.result[qindex]['answers'][i]
+		for method in atexts[i].get_signal_connection_list('pressed'):
+			atexts[i].disconnect('pressed', self, method['method'])
+		if questionsEng.result[qindex]['answers'][i] == answer:
+			atexts[i].connect('pressed', self, 'correct_answer')
+		else:
+			atexts[i].connect('pressed', self, 'wrong_answer')
 
 
 func _on_Game_history():
 	qtext.text = questionsHist.result[qindex]['question']
 	questionsHist.result[qindex]['answers'].shuffle()
+	var answer = questionsHist.result[qindex]['answer']
+	
 	for i in range(4):
 		atexts[i].text = questionsHist.result[qindex]['answers'][i]
+		for method in atexts[i].get_signal_connection_list('pressed'):
+			atexts[i].disconnect('pressed', self, method['method'])
+		if questionsHist.result[qindex]['answers'][i] == answer:
+			atexts[i].connect('pressed', self, 'correct_answer')
+		else:
+			atexts[i].connect('pressed', self, 'wrong_answer')
 
 
 func _on_Game_math():
 	qtext.text = questionsMath.result[qindex]['question']
 	questionsMath.result[qindex]['answers'].shuffle()
+	var answer = questionsMath.result[qindex]['answer']
+	
 	for i in range(4):
 		atexts[i].text = questionsMath.result[qindex]['answers'][i]
+		for method in atexts[i].get_signal_connection_list('pressed'):
+			atexts[i].disconnect('pressed', self, method['method'])
+		if questionsMath.result[qindex]['answers'][i] == answer:
+			atexts[i].connect('pressed', self, 'correct_answer')
+		else:
+			atexts[i].connect('pressed', self, 'wrong_answer')
 
 
 func _on_Game_science():
 	qtext.text = questionsSci.result[qindex]['question']
 	questionsSci.result[qindex]['answers'].shuffle()
+	var answer = questionsSci.result[qindex]['answer']
+	
 	for i in range(4):
 		atexts[i].text = questionsSci.result[qindex]['answers'][i]
+		for method in atexts[i].get_signal_connection_list('pressed'):
+			atexts[i].disconnect('pressed', self, method['method'])
+		if questionsSci.result[qindex]['answers'][i] == answer:
+			atexts[i].connect('pressed', self, 'correct_answer')
+		else:
+			atexts[i].connect('pressed', self, 'wrong_answer')

@@ -48,6 +48,7 @@ func _ready():
 	$HUD/Canvas/Control.show()
 	$CanvasLayer/EndTurn.hide()
 	$DieCard/Die.hide()
+	$DieCard/Card/Trivia.hide()
 
 
 # moves camera to parent
@@ -145,6 +146,7 @@ func do_the_card_stuff(cardColor):
 
 func scienceCard():
 	$DieCard/Card/ScienceCard.show()
+	$DieCard/Card/Trivia.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
@@ -154,6 +156,7 @@ func scienceCard():
 
 func historyCard():
 	$DieCard/Card/HistoryCard.show()
+	$DieCard/Card/Trivia.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
@@ -163,6 +166,7 @@ func historyCard():
 
 func englishCard():
 	$DieCard/Card/EnglishCard.show()
+	$DieCard/Card/Trivia.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
@@ -172,6 +176,7 @@ func englishCard():
 
 func mathCard():
 	$DieCard/Card/MathCard.show()
+	$DieCard/Card/Trivia.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
@@ -184,6 +189,7 @@ func _on_EndTurn_pressed():
 	$DieCard/Card/EnglishCard.hide()
 	$DieCard/Card/ScienceCard.hide()
 	$DieCard/Card/HistoryCard.hide()
+	$DieCard/Card/Trivia.hide()
 	currentPlayerNum += 1
 	currentPlayerNum = currentPlayerNum % playerCount
 	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]

@@ -68,6 +68,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+margin_left = -39.8384
+margin_top = 4.4595
+margin_right = -39.8384
+margin_bottom = 4.4595
 
 [node name="Die" type="AnimatedSprite" parent="DieCard"]
 position = Vector2( 753.445, 417.929 )
@@ -184,20 +188,21 @@ __meta__ = {
 }
 
 [node name="LostTurn" type="Label" parent="CanvasLayer/TurnSwitch/BoxLayout"]
-margin_right = 40.0
+margin_right = 83.0
 margin_bottom = 14.0
 align = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/TurnSwitch/BoxLayout"]
-margin_right = 87.0
-margin_bottom = 14.0
+margin_top = 18.0
+margin_right = 83.0
+margin_bottom = 32.0
 text = "Player X Turn"
 align = 1
 
 [node name="SwitchTurnBtn" type="Button" parent="CanvasLayer/TurnSwitch/BoxLayout"]
-margin_top = 18.0
-margin_right = 87.0
-margin_bottom = 38.0
+margin_top = 36.0
+margin_right = 83.0
+margin_bottom = 56.0
 text = "OK"
 
 [node name="HUD" type="Control" parent="."]

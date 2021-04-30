@@ -96,8 +96,8 @@ margin_right = 512.0
 margin_bottom = -21.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Written by Ash Angels & Associates
-Designed by Chaotic Good Studios"
+text = "Designed by Ash Angels & Associates
+Developed by Chaotic Good Studios"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

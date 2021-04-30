@@ -27,6 +27,10 @@ signal historyCard
 signal mathCard
 signal englishCard
 signal scienceCard
+signal history
+signal math
+signal science
+signal english
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,6 +48,7 @@ func _ready():
 	$HUD/Canvas/Control.show()
 	$CanvasLayer/EndTurn.hide()
 	$DieCard/Die.hide()
+	$DieCard/Card/Trivia.hide()
 
 
 # moves camera to parent
@@ -123,20 +128,21 @@ func do_the_card_stuff(cardColor):
 	else:
 		if cardColor == "green":
 			emit_signal("scienceCard")
-			$CanvasLayer/EndTurn.show()
+			emit_signal("science")
 		if cardColor == "orange":
 			emit_signal("mathCard")
-			$CanvasLayer/EndTurn.show()
+			emit_signal("math")
 		if cardColor == "red":
 			emit_signal("englishCard")
-			$CanvasLayer/EndTurn.show()
+			emit_signal("english")
 		if cardColor == "purple":
 			emit_signal("historyCard")
-			$CanvasLayer/EndTurn.show()
+			emit_signal("history")
 
 
 func scienceCard():
 	$DieCard/Card/ScienceCard.show()
+	$DieCard/Card/Trivia.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
@@ -146,6 +152,7 @@ func scienceCard():
 
 func historyCard():
 	$DieCard/Card/HistoryCard.show()
+	$DieCard/Card/Trivia.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
@@ -155,6 +162,7 @@ func historyCard():
 
 func englishCard():
 	$DieCard/Card/EnglishCard.show()
+	$DieCard/Card/Trivia.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
@@ -164,6 +172,7 @@ func englishCard():
 
 func mathCard():
 	$DieCard/Card/MathCard.show()
+	$DieCard/Card/Trivia.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
@@ -176,6 +185,7 @@ func _on_EndTurn_pressed():
 	$DieCard/Card/EnglishCard.hide()
 	$DieCard/Card/ScienceCard.hide()
 	$DieCard/Card/HistoryCard.hide()
+	$DieCard/Card/Trivia.hide()
 	currentPlayerNum += 1
 	currentPlayerNum = currentPlayerNum % playerCount
 	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
@@ -231,9 +241,41 @@ func _on_SwitchTurnBtn_pressed():
 	$CanvasLayer/GoButton.show()
 
 
-# func _earn_Credits():
-	#if question == True:
-	#	currentPlayerScore += 1 
-#func _win_condition():
-#	if credits > 7:
-#		currentPlayer gameOver
+func _on_Trivia_correct():
+	GameState.currentPlayer.addScore()
+	if GameState.currentPlayer.checkScore() > 7:
+		$DieCard/Card/MathCard.hide()
+		$DieCard/Card/EnglishCard.hide()
+		$DieCard/Card/ScienceCard.hide()
+		$DieCard/Card/HistoryCard.hide()
+		$DieCard/Card/Trivia.hide()
+		$CanvasLayer/TurnSwitch/BoxLayout/LostTurn.text = "Game Over!"
+		$CanvasLayer/TurnSwitch/BoxLayout/Label.text = nextplayer[currentPlayerNum]+" is the winner!" 
+		$CanvasLayer/TurnSwitch.visible = true
+		$CanvasLayer/TurnSwitch/BoxLayout/SwitchTurnBtn.hide()
+	else:
+		$DieCard/Card/MathCard.hide()
+		$DieCard/Card/EnglishCard.hide()
+		$DieCard/Card/ScienceCard.hide()
+		$DieCard/Card/HistoryCard.hide()
+		$DieCard/Card/Trivia.hide()
+		currentPlayerNum += 1
+		currentPlayerNum = currentPlayerNum % playerCount
+		GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
+		$CanvasLayer/TurnSwitch/BoxLayout/LostTurn.text = "Correct! You earned one credit."
+		$CanvasLayer/TurnSwitch/BoxLayout/Label.text = nextplayer[currentPlayerNum]+"'s turn"
+		$CanvasLayer/TurnSwitch.visible = true
+
+
+func _on_Trivia_incorrect():
+	$DieCard/Card/MathCard.hide()
+	$DieCard/Card/EnglishCard.hide()
+	$DieCard/Card/ScienceCard.hide()
+	$DieCard/Card/HistoryCard.hide()
+	$DieCard/Card/Trivia.hide()
+	currentPlayerNum += 1
+	currentPlayerNum = currentPlayerNum % playerCount
+	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
+	$CanvasLayer/TurnSwitch/BoxLayout/LostTurn.text = "Sorry! That answer is incorrect."
+	$CanvasLayer/TurnSwitch/BoxLayout/Label.text = nextplayer[currentPlayerNum]+"'s turn"
+	$CanvasLayer/TurnSwitch.visible = true

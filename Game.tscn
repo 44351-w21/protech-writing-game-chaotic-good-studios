@@ -276,6 +276,8 @@ __meta__ = {
 [connection signal="mathCard" from="." to="." method="mathCard"]
 [connection signal="science" from="." to="DieCard/Card/Trivia" method="_on_Game_science"]
 [connection signal="scienceCard" from="." to="." method="scienceCard"]
+[connection signal="correct" from="DieCard/Card/Trivia" to="." method="_on_Trivia_correct"]
+[connection signal="incorrect" from="DieCard/Card/Trivia" to="." method="_on_Trivia_incorrect"]
 [connection signal="pressed" from="CanvasLayer/GoButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/EndTurn" to="." method="_on_EndTurn_pressed"]
 [connection signal="pressed" from="CanvasLayer/RollButton" to="." method="_on_RollButton_pressed"]

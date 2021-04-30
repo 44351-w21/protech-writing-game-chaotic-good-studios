@@ -14,6 +14,7 @@ var squaresH=18-1
 var squaresV=14-1
 var sumHV=squaresH+squaresV
 var sumHVH=2*squaresH+squaresV
+var score = 0
 
 signal movedone
 
@@ -44,3 +45,11 @@ func movespace():
 	tween.interpolate_property(self, "position", position,
 	position + dir * tilesize, 1.0/speed, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	tween.start()
+
+
+func addScore():
+	score += 1
+
+
+func checkScore():
+	return score

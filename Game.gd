@@ -129,19 +129,15 @@ func do_the_card_stuff(cardColor):
 		if cardColor == "green":
 			emit_signal("scienceCard")
 			emit_signal("science")
-			$CanvasLayer/EndTurn.show()
 		if cardColor == "orange":
 			emit_signal("mathCard")
 			emit_signal("math")
-			$CanvasLayer/EndTurn.show()
 		if cardColor == "red":
 			emit_signal("englishCard")
 			emit_signal("english")
-			$CanvasLayer/EndTurn.show()
 		if cardColor == "purple":
 			emit_signal("historyCard")
 			emit_signal("history")
-			$CanvasLayer/EndTurn.show()
 
 
 func scienceCard():
@@ -245,9 +241,41 @@ func _on_SwitchTurnBtn_pressed():
 	$CanvasLayer/GoButton.show()
 
 
-# func _earn_Credits():
-	#if question == True:
-	#	currentPlayerScore += 1 
-#func _win_condition():
-#	if credits > 7:
-#		currentPlayer gameOver
+func _on_Trivia_correct():
+	GameState.currentPlayer.addScore()
+	if GameState.currentPlayer.checkScore() > 7:
+		$DieCard/Card/MathCard.hide()
+		$DieCard/Card/EnglishCard.hide()
+		$DieCard/Card/ScienceCard.hide()
+		$DieCard/Card/HistoryCard.hide()
+		$DieCard/Card/Trivia.hide()
+		$CanvasLayer/TurnSwitch/BoxLayout/LostTurn.text = "Game Over!"
+		$CanvasLayer/TurnSwitch/BoxLayout/Label.text = nextplayer[currentPlayerNum]+" is the winner!" 
+		$CanvasLayer/TurnSwitch.visible = true
+		$CanvasLayer/TurnSwitch/BoxLayout/SwitchTurnBtn.hide()
+	else:
+		$DieCard/Card/MathCard.hide()
+		$DieCard/Card/EnglishCard.hide()
+		$DieCard/Card/ScienceCard.hide()
+		$DieCard/Card/HistoryCard.hide()
+		$DieCard/Card/Trivia.hide()
+		currentPlayerNum += 1
+		currentPlayerNum = currentPlayerNum % playerCount
+		GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
+		$CanvasLayer/TurnSwitch/BoxLayout/LostTurn.text = "Correct! You earned one credit."
+		$CanvasLayer/TurnSwitch/BoxLayout/Label.text = nextplayer[currentPlayerNum]+"'s turn"
+		$CanvasLayer/TurnSwitch.visible = true
+
+
+func _on_Trivia_incorrect():
+	$DieCard/Card/MathCard.hide()
+	$DieCard/Card/EnglishCard.hide()
+	$DieCard/Card/ScienceCard.hide()
+	$DieCard/Card/HistoryCard.hide()
+	$DieCard/Card/Trivia.hide()
+	currentPlayerNum += 1
+	currentPlayerNum = currentPlayerNum % playerCount
+	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
+	$CanvasLayer/TurnSwitch/BoxLayout/LostTurn.text = "Sorry! That answer is incorrect."
+	$CanvasLayer/TurnSwitch/BoxLayout/Label.text = nextplayer[currentPlayerNum]+"'s turn"
+	$CanvasLayer/TurnSwitch.visible = true

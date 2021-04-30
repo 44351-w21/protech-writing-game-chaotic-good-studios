@@ -1,5 +1,8 @@
 extends Control
 
+signal correct
+signal incorrect
+
 
 var questionsEng
 var questionsMath
@@ -52,6 +55,8 @@ func _on_Game_english():
 			atexts[i].connect('pressed', self, 'correct_answer')
 		else:
 			atexts[i].connect('pressed', self, 'wrong_answer')
+	qindex+= 1
+	qindex %= len(atexts)
 
 
 func _on_Game_history():
@@ -67,6 +72,8 @@ func _on_Game_history():
 			atexts[i].connect('pressed', self, 'correct_answer')
 		else:
 			atexts[i].connect('pressed', self, 'wrong_answer')
+	qindex+= 1
+	qindex %= len(atexts)
 
 
 func _on_Game_math():
@@ -82,6 +89,8 @@ func _on_Game_math():
 			atexts[i].connect('pressed', self, 'correct_answer')
 		else:
 			atexts[i].connect('pressed', self, 'wrong_answer')
+	qindex+= 1
+	qindex %= len(atexts)
 
 
 func _on_Game_science():
@@ -97,3 +106,12 @@ func _on_Game_science():
 			atexts[i].connect('pressed', self, 'correct_answer')
 		else:
 			atexts[i].connect('pressed', self, 'wrong_answer')
+	qindex+= 1
+	qindex %= len(atexts)
+
+func correct_answer():
+	emit_signal('correct')
+
+
+func wrong_answer():
+	emit_signal('incorrect')

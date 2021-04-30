@@ -49,7 +49,7 @@ func _ready():
 	$HUD/Canvas/Control.show()
 	$CanvasLayer/EndTurn.hide()
 	$DieCard/Die.hide()
-	$DieCard/Card/Trivia.hide()
+	$DieCard/Card/VBoxContainer/Trivia.hide()
 
 
 func _on_Rules_pressed():
@@ -175,7 +175,7 @@ func do_the_card_stuff(cardColor):
 
 func scienceCard():
 	$DieCard/Card/ScienceCard.show()
-	$DieCard/Card/Trivia.show()
+	$DieCard/Card/VBoxContainer/Trivia.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
@@ -185,7 +185,7 @@ func scienceCard():
 
 func historyCard():
 	$DieCard/Card/HistoryCard.show()
-	$DieCard/Card/Trivia.show()
+	$DieCard/Card/VBoxContainer/Trivia.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
@@ -195,7 +195,7 @@ func historyCard():
 
 func englishCard():
 	$DieCard/Card/EnglishCard.show()
-	$DieCard/Card/Trivia.show()
+	$DieCard/Card/VBoxContainer/Trivia.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
@@ -205,7 +205,7 @@ func englishCard():
 
 func mathCard():
 	$DieCard/Card/MathCard.show()
-	$DieCard/Card/Trivia.show()
+	$DieCard/Card/VBoxContainer/Trivia.show()
 	$CanvasLayer/MathSelect.hide()
 	$CanvasLayer/HistSelect.hide()
 	$CanvasLayer/EngSelect.hide()
@@ -218,7 +218,7 @@ func _on_EndTurn_pressed():
 	$DieCard/Card/EnglishCard.hide()
 	$DieCard/Card/ScienceCard.hide()
 	$DieCard/Card/HistoryCard.hide()
-	$DieCard/Card/Trivia.hide()
+	$DieCard/Card/VBoxContainer/Trivia.hide()
 	currentPlayerNum += 1
 	currentPlayerNum = currentPlayerNum % playerCount
 	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
@@ -281,7 +281,7 @@ func _on_Trivia_correct():
 		$DieCard/Card/EnglishCard.hide()
 		$DieCard/Card/ScienceCard.hide()
 		$DieCard/Card/HistoryCard.hide()
-		$DieCard/Card/Trivia.hide()
+		$DieCard/Card/VBoxContainer/Trivia.hide()
 		$CanvasLayer/TurnSwitch/BoxLayout/LostTurn.text = "Game Over!"
 		$CanvasLayer/TurnSwitch/BoxLayout/Label.text = nextplayer[currentPlayerNum]+" is the winner!" 
 		$CanvasLayer/TurnSwitch.visible = true
@@ -291,7 +291,7 @@ func _on_Trivia_correct():
 		$DieCard/Card/EnglishCard.hide()
 		$DieCard/Card/ScienceCard.hide()
 		$DieCard/Card/HistoryCard.hide()
-		$DieCard/Card/Trivia.hide()
+		$DieCard/Card/VBoxContainer/Trivia.hide()
 		currentPlayerNum += 1
 		currentPlayerNum = currentPlayerNum % playerCount
 		GameState.currentPlayerLabel=nextplayer[currentPlayerNum]
@@ -305,7 +305,7 @@ func _on_Trivia_incorrect():
 	$DieCard/Card/EnglishCard.hide()
 	$DieCard/Card/ScienceCard.hide()
 	$DieCard/Card/HistoryCard.hide()
-	$DieCard/Card/Trivia.hide()
+	$DieCard/Card/VBoxContainer/Trivia.hide()
 	currentPlayerNum += 1
 	currentPlayerNum = currentPlayerNum % playerCount
 	GameState.currentPlayerLabel=nextplayer[currentPlayerNum]

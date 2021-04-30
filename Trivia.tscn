@@ -36,6 +36,7 @@ margin_right = 1024.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
+autowrap = true
 
 [node name="Choices" type="VBoxContainer" parent="VBoxContainer/Control/VBoxContainer2"]
 margin_top = 18.0

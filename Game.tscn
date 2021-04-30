@@ -51,6 +51,7 @@ __meta__ = {
 [node name="Canvas" type="CanvasLayer" parent="HUD"]
 
 [node name="Control" type="Control" parent="HUD/Canvas"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -247,16 +248,22 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 
-[node name="Trivia" parent="DieCard/Card" instance=ExtResource( 13 )]
+[node name="VBoxContainer" type="VBoxContainer" parent="DieCard/Card"]
+margin_left = -194.0
+margin_top = -3.0
+margin_right = 195.0
+margin_bottom = 37.0
+
+[node name="Trivia" parent="DieCard/Card/VBoxContainer" instance=ExtResource( 13 )]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -39.8384
-margin_top = 4.4595
-margin_right = -39.8384
-margin_bottom = 4.4595
+margin_left = -341.338
+margin_top = -43.5405
+margin_right = -341.338
+margin_bottom = -43.5405
 
 [node name="Die" type="AnimatedSprite" parent="DieCard"]
 position = Vector2( 753.445, 417.929 )
@@ -396,20 +403,20 @@ margin_top = 36.0
 margin_right = 83.0
 margin_bottom = 56.0
 text = "OK"
-[connection signal="english" from="." to="DieCard/Card/Trivia" method="_on_Game_english"]
+[connection signal="english" from="." to="DieCard/Card/VBoxContainer/Trivia" method="_on_Game_english"]
 [connection signal="englishCard" from="." to="." method="englishCard"]
-[connection signal="history" from="." to="DieCard/Card/Trivia" method="_on_Game_history"]
+[connection signal="history" from="." to="DieCard/Card/VBoxContainer/Trivia" method="_on_Game_history"]
 [connection signal="historyCard" from="." to="." method="historyCard"]
-[connection signal="math" from="." to="DieCard/Card/Trivia" method="_on_Game_math"]
+[connection signal="math" from="." to="DieCard/Card/VBoxContainer/Trivia" method="_on_Game_math"]
 [connection signal="mathCard" from="." to="." method="mathCard"]
-[connection signal="science" from="." to="DieCard/Card/Trivia" method="_on_Game_science"]
+[connection signal="science" from="." to="DieCard/Card/VBoxContainer/Trivia" method="_on_Game_science"]
 [connection signal="scienceCard" from="." to="." method="scienceCard"]
 [connection signal="value_changed" from="HUD/Canvas/Control/PlayerCount" to="HUD" method="_on_PlayerCount_value_changed"]
 [connection signal="pressed" from="HUD/Canvas/Control/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="HUD/Canvas/Control/Rules" to="." method="_on_Rules_pressed"]
 [connection signal="pressed" from="HUD/Canvas/Control/Back" to="." method="_on_Back_pressed"]
-[connection signal="correct" from="DieCard/Card/Trivia" to="." method="_on_Trivia_correct"]
-[connection signal="incorrect" from="DieCard/Card/Trivia" to="." method="_on_Trivia_incorrect"]
+[connection signal="correct" from="DieCard/Card/VBoxContainer/Trivia" to="." method="_on_Trivia_correct"]
+[connection signal="incorrect" from="DieCard/Card/VBoxContainer/Trivia" to="." method="_on_Trivia_incorrect"]
 [connection signal="pressed" from="CanvasLayer/GoButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/EndTurn" to="." method="_on_EndTurn_pressed"]
 [connection signal="pressed" from="CanvasLayer/RollButton" to="." method="_on_RollButton_pressed"]

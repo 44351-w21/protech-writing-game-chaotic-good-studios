@@ -33,3 +33,6 @@ Current game assets are from Kenney
 * Prototype Textures: https://kenney.nl/assets/prototype-textures
 * Boardgame Pack: https://www.kenney.nl/assets/boardgame-pack
 * Kenney Fonts: https://kenney.nl/assets/kenney-fonts
+
+Trivia Questions are from Open Trivia Database:
+* https://opentdb.com/api_config.php

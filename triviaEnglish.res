@@ -66,7 +66,7 @@
   },
   {
     "question": "Which word means to avoid or escape?",
-    "answers": [ "ilude", "allude", "edude" ],
+    "answers": [ "ilude", "allude", "elude" ],
     "answer": "elude"
   },
   {

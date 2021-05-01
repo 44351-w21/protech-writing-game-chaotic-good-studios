@@ -68,7 +68,7 @@
     "question": "what do you call the distance around a circle?",
     "answers": [ "circumference", "radius", "perimeter", "boundary" ],
     "answer": "circumference"
-  }
+  },
   {
     "question": "8(3-2)x8",
     "answers": [ "1", "24", "64", "176" ],
@@ -76,7 +76,7 @@
   },
   {
     "question": "Simplify: 6x-8y-5x+3y",
-    "answers": ["5x-4y", "x-3y", "x-5y".],
+    "answers": ["5x-4y", "x-3y", "x-5y"],
     "answer": "x-5y"
   }
 ]

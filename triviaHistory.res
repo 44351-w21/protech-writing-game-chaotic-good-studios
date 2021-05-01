@@ -80,9 +80,9 @@
     "answer": "Thomas Jefferson"
   },
   {
-    "question": "What American woman aided wounded soldiers on the battlefield during the Civil War?",
+    "answer": "Clara Barton",
     "answers": [ "Clara Barton", "Dolley Madison", "Betsy Ross", "Florence Nightingale" ],
-    "answer": "Clara Barton"
+    "question": "What American woman aided wounded soldiers on the battlefield during the Civil War?"
   },
   {
     "question": "When was Napoleon Bonaparte defeated at Waterloo?",

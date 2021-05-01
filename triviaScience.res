@@ -23,10 +23,10 @@
     "answer": "Explorer"
   },
   {
-    "question": "Earth's Water cycle is powered by:",
+    "answer": "sun",
     "answers": [ "wind", "sun", "radioactive decay", "energy of the Earth's rotation" ],
-    "answer": "sun"
-  }
+    "question": "Earth's Water cycle is powered by:"
+  },
   {
     "question": "What type of tissue is present in the hump of a camel?",
     "answers": ["connective", "epithelial", "muscle", "adipose"],

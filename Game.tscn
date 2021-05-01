@@ -403,6 +403,7 @@ margin_top = 36.0
 margin_right = 83.0
 margin_bottom = 56.0
 text = "OK"
+
 [connection signal="english" from="." to="DieCard/Card/VBoxContainer/Trivia" method="_on_Game_english"]
 [connection signal="englishCard" from="." to="." method="englishCard"]
 [connection signal="history" from="." to="DieCard/Card/VBoxContainer/Trivia" method="_on_Game_history"]

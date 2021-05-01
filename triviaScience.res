@@ -7,4 +7,29 @@
 {"question": "What term is best asscociated with Sigmund Freud?", "answers":["Psychoanalysis", "Cognitive-Behavioral Therapy", "Theory of Gravity", "Dialectical Behavior Therapy"], "answer": "Psychoanalysis"},
 {"question": "Myopia is the scientific term for which condition?", "answers":["Shortsightedness", "Farsightedness", "Double Vision", "Clouded Vision"], "answer": "Shortsightedness"},
 {"question": "Which color cannot be produced in roses, even through genetic alteration?", "answers":["Blue", "Black", "Orange", "Brown"], "answer": "Blue"},
-{"question": "What are the smallest blood vessels in the human body?", "answers":["Capillaries", "Arterioles", "Veinules", "Lymphatics"], "answer": "Capillaries"}]
+  {
+    "question": "What are the smallest blood vessels in the human body?",
+    "answers": [ "Capillaries", "Arterioles", "Veinules", "Lymphatics" ],
+    "answer": "Capillaries"
+  },
+  {
+    "question": "How many cups are in 28 fluid ounces?",
+    "answers": [ "2", "3.5", "7", "14.5" ],
+    "answer": "3.5"
+  },
+  {
+    "question": "What was the name of the first satellite pulled into orbit by the United States?",
+    "answers": [ "Explorer", "Titan", "Apollo", "Murcury" ],
+    "answer": "Explorer"
+  },
+  {
+    "question": "Earth's Water cycle is powered by:",
+    "answers": [ "wind", "sun", "radioactive decay", "energy of the Earth's rotation" ],
+    "answer": "sun"
+  }
+  {
+    "question": "What type of tissue is present in the hump of a camel?",
+    "answers": ["connective", "epithelial", "muscle", "adipose"],
+    "answer":"adipose"
+  }
+]

@@ -16,8 +16,8 @@
   },
   {
     "question": "Which of his six wives was Henry VIII married to the longest?",
-    "answers": [ "Catherine of Aragon", "Anne Boleyn", "Jane Seymour", "wrong" ],
-    "Catherine Parr": "Catherine of Aragon"
+    "answers": [ "Catherine of Aragon", "Anne Boleyn", "Jane Seymour", "Catherine Parr" ],
+    "answer": "Catherine of Aragon"
   },
   {
     "question": "Who was the Prime Minister of the United Kingdom for most of World War II?",

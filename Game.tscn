@@ -51,7 +51,6 @@ __meta__ = {
 [node name="Canvas" type="CanvasLayer" parent="HUD"]
 
 [node name="Control" type="Control" parent="HUD/Canvas"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -121,6 +120,7 @@ __meta__ = {
 }
 
 [node name="RulesText" type="Label" parent="HUD/Canvas/Control"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -403,7 +403,6 @@ margin_top = 36.0
 margin_right = 83.0
 margin_bottom = 56.0
 text = "OK"
-
 [connection signal="english" from="." to="DieCard/Card/VBoxContainer/Trivia" method="_on_Game_english"]
 [connection signal="englishCard" from="." to="." method="englishCard"]
 [connection signal="history" from="." to="DieCard/Card/VBoxContainer/Trivia" method="_on_Game_history"]

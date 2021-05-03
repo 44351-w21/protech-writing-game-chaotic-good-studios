@@ -127,22 +127,18 @@ func card_player_interaction():
 
 func _on_MathSelect_pressed():
 	do_the_card_stuff("orange")
-	$CanvasLayer/EndTurn.show()
 
 
 func _on_HistSelect_pressed():
 	do_the_card_stuff("purple")
-	$CanvasLayer/EndTurn.show()
 
 
 func _on_EngSelect_pressed():
 	do_the_card_stuff("red")
-	$CanvasLayer/EndTurn.show()
 
 
 func _on_SciSelect_pressed():
 	do_the_card_stuff("green")
-	$CanvasLayer/EndTurn.show()
 
 
 func do_the_card_stuff(cardColor):

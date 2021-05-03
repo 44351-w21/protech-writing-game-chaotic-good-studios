@@ -1,6 +1,6 @@
 [
   {
-    "question": "By what nickname is Jack Dawkins known in the Charles Dickens novel, &#039;Oliver Twist&#039;?",
+    "question": "By what nickname is Jack Dawkins known in the Charles Dickens novel, Oliver Twist?",
     "answers": [ "The Artful Dodger", "Bulls-eye", "Fagin", "Mr. Fang" ],
     "answer": "The Artful Dodger"
   },
@@ -30,14 +30,14 @@
     "answer": "George R. R. Martin"
   },
   {
-    "question": "Who wrote the children&#039;s story &quot;The Little Match Girl&quot;?",
+    "question": "Who wrote the childrens story The Little Match Girl?",
     "answers": [ "Hans Christian Andersen", "Charles Dickens", "Lewis Carroll", "Oscar Wilde" ],
     "answer": "Hans Christian Andersen"
   },
   {
     "question": "In the year 1818, novelist Mary Shelly is credited with writing a fiction novel and creating this infamous character.",
-    "answers": [ "Frankenstein&#039;s monster", "Dracula", "The Thing", "The Invisible Man" ],
-    "answer": "Frankenstein&#039;s monster"
+    "answers": [ "Frankensteins monster", "Dracula", "The Thing", "The Invisible Man" ],
+    "answer": "Frankensteins monster"
   },
   {
     "question": "Which of these book series is by James Patterson?",
@@ -45,7 +45,7 @@
     "answer": "Maximum Ride"
   },
   {
-    "question": "The novel &quot;Of Mice And Men&quot; was written by what author?",
+    "question": "The novel Of Mice And Men; was written by what author?",
     "answers": [ "John Steinbeck", "George Orwell", "Mark Twain", "Harper Lee" ],
     "answer": "John Steinbeck"
   },

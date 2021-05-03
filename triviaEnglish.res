@@ -15,7 +15,7 @@
     "answer": "Anna Karenina"
   },
   {
-    "question": "What is the title of Adolf Hitler&#039;s autobiography &quot;Mein Kampf&quot; is what when translated to English?",
+    "question": "What is the title of Adolf Hitler's autobiography Mein Kampf is what when translated to English?",
     "answers": [ "My Struggle", "My Hatred", "My Sadness", "My Desire" ],
     "answer": "My Struggle"
   },
@@ -25,7 +25,7 @@
     "answer": "The Dresden Files"
   },
   {
-    "question": "Who wrote the &quot;A Song of Ice And Fire&quot; fantasy novel series?",
+    "question": "Who wrote the A Song of Ice And Fire fantasy novel series?",
     "answers": [ "George R. R. Martin", "George Lucas", "George Orwell", "George Eliot" ],
     "answer": "George R. R. Martin"
   },
@@ -36,8 +36,8 @@
   },
   {
     "question": "In the year 1818, novelist Mary Shelly is credited with writing a fiction novel and creating this infamous character.",
-    "answers": [ "Frankensteins monster", "Dracula", "The Thing", "The Invisible Man" ],
-    "answer": "Frankensteins monster"
+    "answers": [ "Frankenstein's monster", "Dracula", "The Thing", "The Invisible Man" ],
+    "answer": "Frankenstein's monster"
   },
   {
     "question": "Which of these book series is by James Patterson?",
